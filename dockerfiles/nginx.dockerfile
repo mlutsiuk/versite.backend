@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM nginx:1.23.1-alpine
 
 RUN sed -i "s/user  nginx/user root/g" /etc/nginx/nginx.conf
 
