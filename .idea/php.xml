@@ -139,6 +139,8 @@
       <path value="$PROJECT_DIR$/src/vendor/_laravel_idea" />
       <path value="$PROJECT_DIR$/src/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/src/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/src/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/src/vendor/laravel/socialite" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

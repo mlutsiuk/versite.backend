@@ -147,6 +147,8 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/nyholm/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/barryvdh/laravel-debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/maximebf/debugbar" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/league/oauth1-client" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/socialite" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
