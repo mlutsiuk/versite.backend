@@ -47,3 +47,18 @@ services:
       - ./src:/var/www/html:delegated
     networks:
       - laravel
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - "8898:80"
+    networks:
+      - laravel
