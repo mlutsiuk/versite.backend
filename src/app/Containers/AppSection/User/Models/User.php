@@ -13,6 +13,7 @@ class User extends ParentUserModel
      */
     protected $fillable = [
         'name',
+        'nickname',
         'email',
         'password',
     ];
