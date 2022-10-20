@@ -25,6 +25,5 @@
 use App\Containers\AppSection\Authentication\UI\API\Controllers\PasswordLoginController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('auth/login/password', [PasswordLoginController::class, 'login'])
-    ->middleware(['guest']);
+Route::post('auth/login/password', [PasswordLoginController::class, 'login']);
 

@@ -22,6 +22,11 @@ class RedirectIfAuthenticated extends ParentMiddleware
      */
     public function handle(Request $request, Closure $next, ...$guards)    // Review return types
     {
+//    TODO
+//        if($request->expectsJson()) {
+//            return response(null, 204);
+//        }
+
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
