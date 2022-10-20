@@ -3,6 +3,7 @@
 namespace App\Containers\AppSection\Authentication\Middlewares;
 
 use App\Ship\Parents\Middlewares\Middleware as ParentMiddleware;
+use App\Ship\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,13 +20,13 @@ class RedirectIfAuthenticated extends ParentMiddleware
      * @param string|null ...$guards
      * @return Response|RedirectResponse
      */
-    public function handle(Request $request, Closure $next, ...$guards): Response|RedirectResponse
+    public function handle(Request $request, Closure $next, ...$guards)    // Review return types
     {
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect('');
+                return redirect(RouteServiceProvider::HOME);
             }
         }
 
