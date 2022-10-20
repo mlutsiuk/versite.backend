@@ -26,5 +26,5 @@ use App\Containers\AppSection\Authentication\UI\API\Controllers\GoogleLoginContr
 use Illuminate\Support\Facades\Route;
 
 Route::get('auth/login/google/redirect', [GoogleLoginController::class, 'redirect'])
-    ->middleware(['auth:api']);
+    ->middleware(['guest']);
 

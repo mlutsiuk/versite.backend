@@ -25,6 +25,5 @@
 use App\Containers\AppSection\Authentication\UI\API\Controllers\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('auth/verify/{id}/{hash}', [VerifyEmailController::class, 'verifyEmail'])
-    ->middleware(['auth:api']);
+Route::post('auth/verify/{id}/{hash}', [VerifyEmailController::class, 'verifyEmail']);
 
