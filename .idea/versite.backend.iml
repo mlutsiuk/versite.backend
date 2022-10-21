@@ -126,7 +126,6 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/serializable-closure" />
-      <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/sanctum" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/pint" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/passport" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/framework" />

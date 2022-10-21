@@ -117,7 +117,6 @@
       <path value="$PROJECT_DIR$/src/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/src/vendor/laravel/tinker" />
       <path value="$PROJECT_DIR$/src/vendor/laravel/serializable-closure" />
-      <path value="$PROJECT_DIR$/src/vendor/laravel/sanctum" />
       <path value="$PROJECT_DIR$/src/vendor/laravel/pint" />
       <path value="$PROJECT_DIR$/src/vendor/laravel/passport" />
       <path value="$PROJECT_DIR$/src/vendor/laravel/framework" />
