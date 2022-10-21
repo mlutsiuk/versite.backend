@@ -4,8 +4,8 @@
  * @apiGroup           Authentication
  * @apiName            Logout
  *
- * @api                {DELETE} /v1/logout Logout
- * @apiDescription     Endpoint description here...
+ * @api                {DELETE} /v1/auth/logout Logout
+ * @apiDescription     User Logout. (Revoking Access Token)
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated ['permissions' => '', 'roles' => '']
@@ -13,12 +13,10 @@
  * @apiHeader          {String} accept=application/json
  * @apiHeader          {String} authorization=Bearer
  *
- * @apiParam           {String} parameters here...
- *
- * @apiSuccessExample  {json} Success-Response:
- * HTTP/1.1 200 OK
+ * @apiSuccessExample  {json}       Success-Response:
+ * HTTP/1.1 202 Accepted
  * {
- *     // Insert the response of the request here...
+ * "message": "Token revoked successfully."
  * }
  */
 
