@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Authentication\Tasks;
 
-use App\Containers\AppSection\Authentication\Exceptions\UnauthenticatedException;
+use App\Containers\AppSection\Authentication\Exceptions\LoginFailedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,12 +12,12 @@ class CreateAccessTokenForAuthenticatedUserTask extends ParentTask
      * Create new personal access token for authenticated user.
      *
      * @return string User personal access token.
-     * @throws UnauthenticatedException
+     * @throws LoginFailedException
      */
     public function run(): string
     {
         if(!Auth::guard('web')->check()) {
-            throw new UnauthenticatedException();
+            throw new LoginFailedException();
         }
 
         return Auth::guard('web')

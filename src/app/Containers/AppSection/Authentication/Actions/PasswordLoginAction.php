@@ -4,7 +4,6 @@ namespace App\Containers\AppSection\Authentication\Actions;
 
 use App\Containers\AppSection\Authentication\Data\Dto\PasswordLoginDto;
 use App\Containers\AppSection\Authentication\Exceptions\LoginFailedException;
-use App\Containers\AppSection\Authentication\Exceptions\UnauthenticatedException;
 use App\Containers\AppSection\Authentication\Tasks\CreateAccessTokenForAuthenticatedUserTask;
 use App\Ship\Parents\Actions\Action as ParentAction;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +15,7 @@ class PasswordLoginAction extends ParentAction
      *
      * @param PasswordLoginDto $dto Provided user credential
      * @return string User personal access token.
-     * @throws LoginFailedException|UnauthenticatedException
+     * @throws LoginFailedException
      */
     public function run(PasswordLoginDto $dto): string
     {
@@ -24,7 +23,7 @@ class PasswordLoginAction extends ParentAction
             ->attempt($dto->toArray());
 
         if (!$loggedIn) {
-            throw new LoginFailedException();
+            throw new LoginFailedException('Invalid Login Credentials.');
         }
 
         return app(CreateAccessTokenForAuthenticatedUserTask::class)->run();

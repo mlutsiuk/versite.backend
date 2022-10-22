@@ -13,6 +13,10 @@ use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 class PasswordLoginController extends ApiController
 {
     /**
+     * Login user via email & password.
+     *
+     * @param PasswordLoginRequest $request
+     * @return JsonResponse
      * @throws UnknownProperties
      */
     public function login(PasswordLoginRequest $request): JsonResponse

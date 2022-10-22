@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Authentication\Actions;
 
-use App\Containers\AppSection\Authentication\Exceptions\UnauthenticatedException;
+use App\Containers\AppSection\Authentication\Exceptions\LoginFailedException;
 use App\Containers\AppSection\Authentication\Tasks\CreateAccessTokenForAuthenticatedUserTask;
 use App\Containers\AppSection\Authentication\Tasks\GetGoogleSocialiteUserTask;
 use App\Containers\AppSection\Authentication\Tasks\RegisterUserFromGoogleTask;
@@ -16,7 +16,7 @@ class HandleGoogleLoginCallbackAction extends ParentAction
      * Handle Google login callback, login or create new account.
      *
      * @return string User personal access token.
-     * @throws UnauthenticatedException
+     * @throws LoginFailedException
      */
     public function run(): string
     {

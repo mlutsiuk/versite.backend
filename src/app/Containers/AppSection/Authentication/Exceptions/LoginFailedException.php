@@ -8,5 +8,5 @@ use Symfony\Component\HttpFoundation\Response;
 class LoginFailedException extends ParentException
 {
     protected $code = Response::HTTP_UNAUTHORIZED;
-    protected $message = 'Wrong credentials.';
+    protected $message = 'An Exception happened during the Login Process.';
 }

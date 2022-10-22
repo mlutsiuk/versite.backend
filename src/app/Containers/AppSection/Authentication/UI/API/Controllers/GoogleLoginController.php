@@ -3,7 +3,7 @@
 namespace App\Containers\AppSection\Authentication\UI\API\Controllers;
 
 use App\Containers\AppSection\Authentication\Actions\HandleGoogleLoginCallbackAction;
-use App\Containers\AppSection\Authentication\Exceptions\UnauthenticatedException;
+use App\Containers\AppSection\Authentication\Exceptions\LoginFailedException;
 use App\Containers\AppSection\Authentication\Tasks\CreateGoogleLoginRedirectUrlTask;
 use App\Ship\Parents\Controllers\ApiController;
 use Illuminate\Http\JsonResponse;
@@ -26,8 +26,8 @@ class GoogleLoginController extends ApiController
 
     /**
      * Handle Google login callback, login or create new account.
-     *
-     * @throws UnauthenticatedException
+
+     * @throws LoginFailedException
      */
     public function handleCallback(): JsonResponse
     {
