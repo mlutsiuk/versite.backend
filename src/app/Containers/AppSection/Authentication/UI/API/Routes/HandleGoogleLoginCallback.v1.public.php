@@ -2,23 +2,22 @@
 
 /**
  * @apiGroup           Authentication
- * @apiName            HandleCallback
+ * @apiName            HandleGoogleLoginCallback
  *
- * @api                {GET} /v1/login/google/callback Handle Callback
- * @apiDescription     Endpoint description here...
+ * @api                {GET} /v1/auth/login/google/callback Handle Google Login Callback
+ * @apiDescription     Handle Google login callback
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated ['permissions' => '', 'roles' => '']
+ * @apiPermission      none
  *
  * @apiHeader          {String} accept=application/json
- * @apiHeader          {String} authorization=Bearer
- *
- * @apiParam           {String} parameters here...
  *
  * @apiSuccessExample  {json} Success-Response:
  * HTTP/1.1 200 OK
  * {
- *     // Insert the response of the request here...
+ * "token_type": "Bearer",
+ * "expires_in": 315360000,
+ * "access_token": "eyJ0eXAiOiJKV1QiLCJhbG..."
  * }
  */
 

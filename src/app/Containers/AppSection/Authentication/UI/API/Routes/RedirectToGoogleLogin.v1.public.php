@@ -2,23 +2,20 @@
 
 /**
  * @apiGroup           Authentication
- * @apiName            GoogleLogin
+ * @apiName            RedirectToGoogleLogin
  *
- * @api                {GET} /v1/login/google/redirect Google Login
+ * @api                {GET} /v1/auth/login/google/redirect Redirect To Google Login
  * @apiDescription     Endpoint description here...
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated ['permissions' => '', 'roles' => '']
+ * @apiPermission      none
  *
  * @apiHeader          {String} accept=application/json
- * @apiHeader          {String} authorization=Bearer
- *
- * @apiParam           {String} parameters here...
  *
  * @apiSuccessExample  {json} Success-Response:
  * HTTP/1.1 200 OK
  * {
- *     // Insert the response of the request here...
+ * "url" => "https://accounts.google.com/o/oauth2/auth?client_id=1046..."
  * }
  */
 
