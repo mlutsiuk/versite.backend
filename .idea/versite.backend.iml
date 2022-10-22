@@ -148,6 +148,9 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/maximebf/debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/league/oauth1-client" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/socialite" />
+      <excludeFolder url="file://$MODULE_DIR$/src/storage/debugbar" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/_laravel_idea" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/data-transfer-object" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
