@@ -2,23 +2,25 @@
 
 /**
  * @apiGroup           Authentication
- * @apiName            Login
+ * @apiName            PasswordLogin
  *
- * @api                {POST} /v1/login/password Login
- * @apiDescription     Endpoint description here...
+ * @api                {POST} /v1/auth/login/password PasswordLogin
+ * @apiDescription     Login Users using their email and passwords.
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated ['permissions' => '', 'roles' => '']
+ * @apiPermission      none
  *
  * @apiHeader          {String} accept=application/json
- * @apiHeader          {String} authorization=Bearer
  *
- * @apiParam           {String} parameters here...
+ * @apiBody           {String} email
+ * @apiBody           {String} password
  *
- * @apiSuccessExample  {json} Success-Response:
+ * @apiSuccessExample  {json}       Success-Response:
  * HTTP/1.1 200 OK
  * {
- *     // Insert the response of the request here...
+ * "token_type": "Bearer",
+ * "expires_in": 315360000,
+ * "access_token": "eyJ0eXAiOiJKV1QiLCJhbG..."
  * }
  */
 

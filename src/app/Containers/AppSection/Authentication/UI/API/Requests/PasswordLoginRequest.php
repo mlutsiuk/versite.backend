@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\Authentication\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request as ParentRequest;
 
-class LogoutRequest extends ParentRequest
+class PasswordLoginRequest extends ParentRequest
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -20,7 +20,8 @@ class LogoutRequest extends ParentRequest
     public function rules(): array
     {
         return [
-
+            'email' => 'required|email',
+            'password' => 'required',
         ];
     }
 
