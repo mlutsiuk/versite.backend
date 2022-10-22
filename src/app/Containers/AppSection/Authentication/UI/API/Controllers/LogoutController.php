@@ -3,7 +3,6 @@
 namespace App\Containers\AppSection\Authentication\UI\API\Controllers;
 
 use App\Containers\AppSection\Authentication\Actions\LogoutAction;
-use App\Containers\AppSection\Authentication\UI\API\Requests\LogoutRequest;
 use App\Ship\Parents\Controllers\ApiController;
 use Illuminate\Http\JsonResponse;
 
@@ -14,7 +13,7 @@ class LogoutController extends ApiController
      *
      * @return JsonResponse
      */
-    public function logout(LogoutRequest $request): JsonResponse
+    public function logout(): JsonResponse
     {
         app(LogoutAction::class)->run();
 
