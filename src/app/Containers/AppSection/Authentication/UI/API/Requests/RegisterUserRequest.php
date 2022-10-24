@@ -2,6 +2,7 @@
 
 namespace App\Containers\AppSection\Authentication\UI\API\Requests;
 
+use App\Containers\AppSection\User\Models\User;
 use App\Ship\Parents\Requests\Request as ParentRequest;
 
 class RegisterUserRequest extends ParentRequest
@@ -28,7 +29,10 @@ class RegisterUserRequest extends ParentRequest
 
             // TODO: lowercase before validation
             'email' => 'required|unique:users,email',
-            'password' => 'required|min:8|max:64'
+            'password' => [
+                'required',
+                User::getPasswordValidationRules(),
+            ]
         ];
     }
 

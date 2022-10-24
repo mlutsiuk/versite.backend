@@ -7,6 +7,7 @@ use App\Containers\AppSection\Authentication\Tasks\CreateAccessTokenForAuthentic
 use App\Containers\AppSection\Authentication\Tasks\GetGoogleSocialiteUserTask;
 use App\Containers\AppSection\Authentication\Tasks\RegisterUserFromGoogleTask;
 use App\Containers\AppSection\User\Models\User;
+use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Actions\Action as ParentAction;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,7 @@ class HandleGoogleLoginCallbackAction extends ParentAction
      * Handle Google login callback, login or create new account.
      *
      * @return string User personal access token.
-     * @throws LoginFailedException
+     * @throws LoginFailedException|CreateResourceFailedException
      */
     public function run(): string
     {

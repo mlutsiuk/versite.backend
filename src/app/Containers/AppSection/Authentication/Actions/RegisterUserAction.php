@@ -6,26 +6,38 @@ use App\Containers\AppSection\Authentication\Data\Dto\RegisterUserDto;
 use App\Containers\AppSection\Authentication\Exceptions\LoginFailedException;
 use App\Containers\AppSection\Authentication\Tasks\CreateAccessTokenForAuthenticatedUserTask;
 use App\Containers\AppSection\Authentication\Tasks\HashPasswordTask;
-use App\Containers\AppSection\User\Models\User;
+use App\Containers\AppSection\User\Data\Repositories\UserRepository;
+use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Actions\Action as ParentAction;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 
 class RegisterUserAction extends ParentAction
 {
+    public function __construct(protected UserRepository $repository)
+    {
+
+    }
+
     /**
      * @param RegisterUserDto $dto
      * @return string User access token
-     * @throws LoginFailedException
+     * @throws LoginFailedException|CreateResourceFailedException
      */
     public function run(RegisterUserDto $dto): string
     {
-        // Create user by given credentials
-        $user = new User;
-        $user->name = $dto->name;
-        $user->nickname = $dto->nickname;
-        $user->email = $dto->email;
-        $user->password = app(HashPasswordTask::class)->run($dto->password);
-        $user->save();
+        $data = [
+            'name' => $dto->name,
+            'nickname' => $dto->nickname,
+            'email' => $dto->email,
+            'password' => app(HashPasswordTask::class)->run($dto->password)
+        ];
+
+        try {
+            $user = $this->repository->create($data);
+        } catch (Exception) {
+            throw new CreateResourceFailedException();
+        }
 
         // Login as newly created user
         Auth::guard('web')->login($user);

@@ -3,6 +3,7 @@
 namespace App\Containers\AppSection\User\Models;
 
 use App\Ship\Parents\Models\UserModel as ParentUserModel;
+use Illuminate\Validation\Rules\Password;
 
 class User extends ParentUserModel
 {
@@ -36,4 +37,13 @@ class User extends ParentUserModel
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function getPasswordValidationRules(): Password
+    {
+        return Password::min(8)
+            ->letters()
+            ->mixedCase()
+            ->numbers()
+            ->symbols();
+    }
 }
