@@ -15,7 +15,7 @@ class RegisterUserFromGoogleTask extends ParentTask
      */
     public function run(\Laravel\Socialite\Contracts\User $socialiteUser): User
     {
-        $user = new User;
+        $user = new User;    // TODO: Use repository
         $user->name = $socialiteUser->name;
         $user->email = $socialiteUser->email;
         $user->avatar = $socialiteUser->avatar;
