@@ -142,6 +142,7 @@
       <path value="$PROJECT_DIR$/src/vendor/laravel/socialite" />
       <path value="$PROJECT_DIR$/src/vendor/spatie/data-transfer-object" />
       <path value="$PROJECT_DIR$/src/vendor/apiato/documentation-generator-container" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

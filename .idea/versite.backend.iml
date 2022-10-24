@@ -152,6 +152,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/_laravel_idea" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/data-transfer-object" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/apiato/documentation-generator-container" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/laravel-permission" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
