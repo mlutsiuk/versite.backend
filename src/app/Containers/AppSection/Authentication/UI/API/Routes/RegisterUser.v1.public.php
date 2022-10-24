@@ -1,25 +1,21 @@
 <?php
 
 /**
- * @apiGroup           Authentication
- * @apiName            RegisterUser
+ * @apiGroup            Authentication
+ * @apiName             RegisterUser
  *
- * @api                {POST} /v1/register Register User
- * @apiDescription     Endpoint description here...
+ * @api                 {POST} /v1/auth/register Register User
+ * @apiDescription      Register user to authenticate via password
  *
- * @apiVersion         1.0.0
- * @apiPermission      Authenticated ['permissions' => '', 'roles' => '']
+ * @apiVersion          1.0.0
+ * @apiPermission       none
  *
- * @apiHeader          {String} accept=application/json
- * @apiHeader          {String} authorization=Bearer
+ * @apiHeader           {String} accept=application/json
  *
- * @apiParam           {String} parameters here...
+ * @apiBody             {String} email
+ * @apiBody             {String} password min: 8
  *
- * @apiSuccessExample  {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiUse              AccessTokenSuccessResponse
  */
 
 use App\Containers\AppSection\Authentication\UI\API\Controllers\RegisterUserController;

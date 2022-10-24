@@ -4,7 +4,7 @@
  * @apiGroup           Authentication
  * @apiName            RedirectToGoogleLogin
  *
- * @api                {GET} /v1/auth/login/google/redirect Redirect To Google Login
+ * @api                {GET} /v1/auth/login/google/redirect Google Login: Redirect
  * @apiDescription     Endpoint description here...
  *
  * @apiVersion         1.0.0
