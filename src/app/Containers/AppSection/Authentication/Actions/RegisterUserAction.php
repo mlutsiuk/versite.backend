@@ -10,6 +10,7 @@ use App\Containers\AppSection\User\Data\Repositories\UserRepository;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Actions\Action as ParentAction;
 use Exception;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 
 class RegisterUserAction extends ParentAction
@@ -38,6 +39,8 @@ class RegisterUserAction extends ParentAction
         } catch (Exception) {
             throw new CreateResourceFailedException();
         }
+
+        event(new Registered($user));
 
         // Login as newly created user
         Auth::guard('web')->login($user);

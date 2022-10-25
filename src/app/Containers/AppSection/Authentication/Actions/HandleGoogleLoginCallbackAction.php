@@ -9,6 +9,7 @@ use App\Containers\AppSection\Authentication\Tasks\RegisterUserFromGoogleTask;
 use App\Containers\AppSection\User\Models\User;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Actions\Action as ParentAction;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 
 class HandleGoogleLoginCallbackAction extends ParentAction
@@ -26,6 +27,7 @@ class HandleGoogleLoginCallbackAction extends ParentAction
         $user = User::where('email', $socialiteUser->email)->first();
         if (!$user) {
             $user = app(RegisterUserFromGoogleTask::class)->run($socialiteUser);
+            event(new Registered($user));
         }
 
         Auth::guard('web')->login($user);
