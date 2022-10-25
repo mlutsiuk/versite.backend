@@ -22,6 +22,7 @@ class RegisterUserFromGoogleTask extends ParentTask
      */
     public function run(\Laravel\Socialite\Contracts\User $socialiteUser): User
     {
+        User::unguard();
         $data = [
             'name' => $socialiteUser->getName(),
             'email' => $socialiteUser->getEmail(),
@@ -31,8 +32,11 @@ class RegisterUserFromGoogleTask extends ParentTask
 
         try {
             $user = $this->repository->create($data);
+
         } catch (Exception) {
             throw new CreateResourceFailedException();
+        } finally {
+            User::reguard();
         }
 
         return $user;
