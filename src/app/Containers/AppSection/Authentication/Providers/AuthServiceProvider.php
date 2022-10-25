@@ -5,9 +5,7 @@ namespace App\Containers\AppSection\Authentication\Providers;
 use Apiato\Core\Loaders\RoutesLoaderTrait;
 use App\Ship\Parents\Providers\AuthServiceProvider as ParentAuthProvider;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Passport;
-use Laravel\Passport\RouteRegistrar;
 
 class AuthServiceProvider extends ParentAuthProvider
 {
