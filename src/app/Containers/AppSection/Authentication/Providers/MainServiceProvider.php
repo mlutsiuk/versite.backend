@@ -10,7 +10,6 @@ use Laravel\Passport\PassportServiceProvider;
  *
  * The Main Service Provider of this container, it will be automatically registered in the framework.
  *
-
  */
 class MainServiceProvider extends ParentMainServiceProvider
 {
@@ -19,6 +18,7 @@ class MainServiceProvider extends ParentMainServiceProvider
      */
     public array $serviceProviders = [
         AuthServiceProvider::class,
+        EventServiceProvider::class,
         MiddlewareServiceProvider::class,
         PassportServiceProvider::class,
     ];
