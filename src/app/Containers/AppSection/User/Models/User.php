@@ -2,11 +2,17 @@
 
 namespace App\Containers\AppSection\User\Models;
 
+use App\Containers\AppSection\Authorization\Traits\AuthorizationTrait;
 use App\Ship\Parents\Models\UserModel as ParentUserModel;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Validation\Rules\Password;
 
-class User extends ParentUserModel
+class User extends ParentUserModel implements MustVerifyEmail
 {
+    use AuthorizationTrait;
+    use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -16,7 +22,8 @@ class User extends ParentUserModel
         'name',
         'nickname',
         'email',
-        'password',
+        'avatar',
+        'password'
     ];
 
     /**
@@ -36,6 +43,7 @@ class User extends ParentUserModel
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_registration_completed' => 'boolean'
     ];
 
     public static function getPasswordValidationRules(): Password
