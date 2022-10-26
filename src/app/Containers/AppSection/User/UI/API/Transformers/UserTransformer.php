@@ -27,7 +27,7 @@ class UserTransformer extends ParentTransformer
             'name' => $user->name,
             'nickname' => $user->nickname,
             'email' => $user->email,
-            'avatar' => $user->email,
+            'avatar' => $user->avatar,
             'email_verified_at' => $user->email_verified_at,
             'is_registration_completed' => $user->is_registration_completed,
         ];
