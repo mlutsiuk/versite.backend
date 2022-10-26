@@ -14,10 +14,10 @@
  * @apiHeader          {String} authorization=Bearer
  *
  * @apiSuccessExample  {json}       Success-Response:
- * HTTP/1.1 202 Accepted
- * {
- * "message": "Token revoked successfully."
- * }
+HTTP/1.1 202 Accepted
+{
+    "message": "Token revoked successfully."
+}
  */
 
 use App\Containers\AppSection\Authentication\UI\API\Controllers\LogoutController;

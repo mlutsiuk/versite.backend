@@ -13,10 +13,10 @@
  * @apiHeader          {String} accept=application/json
  *
  * @apiSuccessExample  {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- * "url" => "https://accounts.google.com/o/oauth2/auth?client_id=1046..."
- * }
+HTTP/1.1 200 OK
+{
+    "url" => "https://accounts.google.com/o/oauth2/auth?client_id=1046..."
+}
  */
 
 use App\Containers\AppSection\Authentication\UI\API\Controllers\GoogleLoginController;
