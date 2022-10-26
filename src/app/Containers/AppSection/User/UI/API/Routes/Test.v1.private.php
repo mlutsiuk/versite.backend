@@ -13,8 +13,6 @@
  * @apiHeader          {String} accept=application/json
  * @apiHeader          {String} authorization=Bearer
  *
- * @apiParam           {String} parameters here...
- *
  * @apiSuccessExample  {json} Success-Response:
  * HTTP/1.1 200 OK
  * {
