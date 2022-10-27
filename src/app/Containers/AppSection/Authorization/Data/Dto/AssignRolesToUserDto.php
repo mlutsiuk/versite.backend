@@ -14,7 +14,7 @@ class AssignRolesToUserDto extends ParentDto
     public array $roles_ids;
 
     /**
-     * @var string User id
+     * @var int User id
      */
-    public string $user_id;
+    public int $user_id;
 }
