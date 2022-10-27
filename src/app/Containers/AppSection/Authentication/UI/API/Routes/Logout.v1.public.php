@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @apiGroup           Authentication
- * @apiName            Logout
+ * @apiGroup            Authentication
+ * @apiName             Logout
  *
- * @api                {DELETE} /v1/auth/logout Logout
- * @apiDescription     User Logout. (Revoking Access Token)
+ * @api                 {DELETE} /v1/auth/logout Logout
+ * @apiDescription      User Logout. (Revoking Access Token)
  *
- * @apiVersion         1.0.0
- * @apiPermission      Authenticated ['permissions' => '', 'roles' => '']
+ * @apiVersion          1.0.0
+ * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
  *
- * @apiHeader          {String} accept=application/json
- * @apiHeader          {String} authorization=Bearer
+ * @apiHeader           {String} accept=application/json
+ * @apiHeader           {String} authorization=Bearer
  *
- * @apiSuccessExample  {json}       Success-Response:
+ * @apiSuccessExample   {json}       Success-Response:
 HTTP/1.1 202 Accepted
 {
     "message": "Token revoked successfully."
