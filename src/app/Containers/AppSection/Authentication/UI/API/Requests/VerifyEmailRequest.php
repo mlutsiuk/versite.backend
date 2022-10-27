@@ -15,6 +15,13 @@ class VerifyEmailRequest extends ParentRequest
     ];
 
     /**
+     * Id's that needs decoding before applying the validation rules.
+     */
+    protected array $decode = [
+        'id',
+    ];
+
+    /**
      * Defining the URL parameters (e.g, `/user/{id}`) allows applying
      * validation rules on them and allows accessing them like request data.
      */

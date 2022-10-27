@@ -18,7 +18,7 @@ class VerifyEmail extends ParentNotification
     public function toMail(UserModel $notifiable): MailMessage
     {
         $url = URL::route('auth.verify-email', [
-            'id' => $notifiable->getKey(),
+            'id' => $notifiable->getHashedKey(),
             'hash' => app(HashEmailTask::class)->run($notifiable->getEmailForVerification())
         ]);
 

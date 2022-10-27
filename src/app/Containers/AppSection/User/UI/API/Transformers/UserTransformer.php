@@ -23,7 +23,7 @@ class UserTransformer extends ParentTransformer
     {
         $response = [
             'object' => $user->getResourceKey(),
-            'id' => $user->id,    // TODO
+            'id' => $user->getHashedKey(),
             'name' => $user->name,
             'nickname' => $user->nickname,
             'email' => $user->email,
@@ -33,6 +33,7 @@ class UserTransformer extends ParentTransformer
         ];
 
         return $this->ifAdmin([
+            'real_id' => $user->id,
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
             'readable_created_at' => $user->created_at->diffForHumans(),
