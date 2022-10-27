@@ -4,7 +4,7 @@
  * @apiGroup            Authorization
  * @apiName             AssignPermissionsToUser
  *
- * @api                 {PATCH} /v1/users/:id/permissions Attach Permissions To User
+ * @api                 {PATCH} /v1/users/:user_id/permissions Attach Permissions To User
  * @apiDescription      Attach direct permissions to user
  *
  * @apiVersion          1.0.0
@@ -13,7 +13,7 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiParam            {String} id user's id
+ * @apiParam            {String} user_id user's id
  * @apiBody             {Array} permission_ids Array of Permissions ID's
  *
  * @apiUse              UserSuccessSingleResponse
