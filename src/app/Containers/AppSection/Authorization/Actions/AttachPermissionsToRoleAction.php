@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Authorization\Actions;
 
-use App\Containers\AppSection\Authorization\Data\Dto\AttachPermissionsToRolesDto;
+use App\Containers\AppSection\Authorization\Data\Dto\AttachPermissionsToRoleDto;
 use App\Containers\AppSection\Authorization\Models\Role;
 use App\Containers\AppSection\Authorization\Tasks\FindPermissionTask;
 use App\Containers\AppSection\Authorization\Tasks\FindRoleTask;
@@ -12,11 +12,11 @@ use App\Ship\Parents\Actions\Action as ParentAction;
 class AttachPermissionsToRoleAction extends ParentAction
 {
     /**
-     * @param AttachPermissionsToRolesDto $dto
+     * @param AttachPermissionsToRoleDto $dto
      * @return Role
      * @throws NotFoundException
      */
-    public function run(AttachPermissionsToRolesDto $dto): Role
+    public function run(AttachPermissionsToRoleDto $dto): Role
     {
         $role = app(FindRoleTask::class)->run($dto->role_id);
 

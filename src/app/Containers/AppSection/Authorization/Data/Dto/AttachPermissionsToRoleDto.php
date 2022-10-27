@@ -6,7 +6,7 @@ use App\Ship\Parents\Dto\Dto as ParentDto;
 use Spatie\DataTransferObject\Attributes\Strict;
 
 #[Strict]
-class AttachPermissionsToRolesDto extends ParentDto
+class AttachPermissionsToRoleDto extends ParentDto
 {
     /**
      * @var int[] Permissions ids

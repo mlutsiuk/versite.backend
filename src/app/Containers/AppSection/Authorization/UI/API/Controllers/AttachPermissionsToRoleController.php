@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\Authorization\UI\API\Controllers;
 
 use Apiato\Core\Exceptions\InvalidTransformerException;
 use App\Containers\AppSection\Authorization\Actions\AttachPermissionsToRoleAction;
-use App\Containers\AppSection\Authorization\Data\Dto\AttachPermissionsToRolesDto;
+use App\Containers\AppSection\Authorization\Data\Dto\AttachPermissionsToRoleDto;
 use App\Containers\AppSection\Authorization\UI\API\Requests\AttachPermissionsToRoleRequest;
 use App\Containers\AppSection\Authorization\UI\API\Transformers\RoleTransformer;
 use App\Ship\Exceptions\NotFoundException;
@@ -22,7 +22,7 @@ class AttachPermissionsToRoleController extends ApiController
      */
     public function attachPermissionsToRole(AttachPermissionsToRoleRequest $request): array
     {
-        $dto = new AttachPermissionsToRolesDto($request->validated());
+        $dto = new AttachPermissionsToRoleDto($request->validated());
         $role = app(AttachPermissionsToRoleAction::class)->run($dto);
 
         return $this->transform($role, RoleTransformer::class);
