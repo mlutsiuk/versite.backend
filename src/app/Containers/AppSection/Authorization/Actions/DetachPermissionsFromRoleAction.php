@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Authorization\Actions;
 
-use App\Containers\AppSection\Authorization\Data\Dto\DetachPermissionsToRoleDto;
+use App\Containers\AppSection\Authorization\Data\Dto\DetachPermissionsFromRoleDto;
 use App\Containers\AppSection\Authorization\Models\Role;
 use App\Containers\AppSection\Authorization\Tasks\DetachPermissionsFromRoleTask;
 use App\Containers\AppSection\Authorization\Tasks\FindPermissionTask;
@@ -13,11 +13,11 @@ use App\Ship\Parents\Actions\Action as ParentAction;
 class DetachPermissionsFromRoleAction extends ParentAction
 {
     /**
-     * @param DetachPermissionsToRoleDto $dto
+     * @param DetachPermissionsFromRoleDto $dto
      * @return Role
      * @throws NotFoundException
      */
-    public function run(DetachPermissionsToRoleDto $dto): Role
+    public function run(DetachPermissionsFromRoleDto $dto): Role
     {
         $role = app(FindRoleTask::class)->run($dto->role_id);
 
