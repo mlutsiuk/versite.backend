@@ -18,7 +18,7 @@ class RenderApidocJsonTask extends Task
         $this->replaceArray = [
             'name' => config('app.name'),
             'description' => config('app.name') . ' (' . ucfirst($docType) . ' API) Documentation',
-            'title' => 'Welcome to ' . config('app.name'),
+            'title' => '📜 Api | ' . config('app.name'),
             'url' => $this->getFullUrl(),
             'sampleUrl' => config('vendor-documentation.enable-sending-sample-request') ? $this->getFullUrl() : null,
         ];
