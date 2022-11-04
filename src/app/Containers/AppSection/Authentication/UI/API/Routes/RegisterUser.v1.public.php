@@ -21,6 +21,5 @@
 use App\Containers\AppSection\Authentication\UI\API\Controllers\RegisterUserController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('auth/register', [RegisterUserController::class, 'registerUser'])
-    ->middleware(['guest']);
+Route::post('auth/register', [RegisterUserController::class, 'registerUser']);
 
