@@ -3,7 +3,8 @@ FROM php:8.1.11-fpm-alpine
 RUN apk --update --no-cache add \
     icu-dev \
     gettext \
-    gettext-dev
+    gettext-dev \
+    git
 
 RUN mkdir -p /var/www/html
 
