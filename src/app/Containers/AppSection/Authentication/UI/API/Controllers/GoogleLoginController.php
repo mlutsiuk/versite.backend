@@ -21,7 +21,9 @@ class GoogleLoginController extends ApiController
         $redirectUrl = app(CreateGoogleLoginRedirectUrlTask::class)->run();
 
         return response()->json([
-            'url' => $redirectUrl
+            'data' => [
+                'url' => $redirectUrl
+            ]
         ]);
     }
 

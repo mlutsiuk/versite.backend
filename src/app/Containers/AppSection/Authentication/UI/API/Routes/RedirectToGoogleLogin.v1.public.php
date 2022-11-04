@@ -15,7 +15,9 @@
  * @apiSuccessExample   {json} Success-Response:
 HTTP/1.1 200 OK
 {
-    "url" => "https://accounts.google.com/o/oauth2/auth?client_id=1046..."
+    "data" => {
+        "url" => "https://accounts.google.com/o/oauth2/auth?client_id=1046..."
+    }
 }
  */
 
