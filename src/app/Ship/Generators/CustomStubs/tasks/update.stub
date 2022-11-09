@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Containers\{{section-name}}\{{container-name}}\Tasks;
+
+use App\Containers\{{section-name}}\{{container-name}}\Data\Dto\Update{{model}}Dto;
+use App\Containers\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
+use App\Containers\{{section-name}}\{{container-name}}\Models\{{model}};
+use App\Ship\Exceptions\NotFoundException;
+use App\Ship\Exceptions\NotImplementedException;
+use App\Ship\Exceptions\UpdateResourceFailedException;
+use App\Ship\Parents\Tasks\Task as ParentTask;
+use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
+class {{class-name}} extends ParentTask
+{
+    public function __construct(
+        protected {{model}}Repository $repository
+    ) {
+    }
+
+    /**
+     * @param Update{{model}}Dto $dto
+     * @param $id
+     * @throws NotFoundException
+     * @throws UpdateResourceFailedException
+     */
+    public function run(Update{{model}}Dto $dto, $id): {{model}}
+    {
+        throw new NotImplementedException();
+
+        try {
+            return $this->repository->update([
+                 // 'title' => $dto->title
+             ], $id);
+        } catch (ModelNotFoundException) {
+            throw new NotFoundException();
+        } catch (Exception) {
+            throw new UpdateResourceFailedException();
+        }
+    }
+}

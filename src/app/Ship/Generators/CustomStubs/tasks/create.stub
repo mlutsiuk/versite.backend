@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Containers\{{section-name}}\{{container-name}}\Tasks;
+
+use App\Containers\{{section-name}}\{{container-name}}\Data\Dto\Create{{model}}Dto;
+use App\Containers\{{section-name}}\{{container-name}}\Data\Repositories\{{model}}Repository;
+use App\Containers\{{section-name}}\{{container-name}}\Models\{{model}};
+use App\Ship\Exceptions\CreateResourceFailedException;
+use App\Ship\Exceptions\NotImplementedException;
+use App\Ship\Parents\Tasks\Task as ParentTask;
+use Exception;
+
+class {{class-name}} extends ParentTask
+{
+    public function __construct(
+        protected {{model}}Repository $repository
+    ) {
+    }
+
+    /**
+     * @param Create{{model}}Dto $dto
+     * @throws CreateResourceFailedException
+     */
+    public function run(Create{{model}}Dto $dto): {{model}}
+    {
+        throw new NotImplementedException();
+
+        try {
+            /*
+            return $this->repository->create([
+                // 'title' => $dto->title
+            ]);
+            */
+        } catch (Exception) {
+            throw new CreateResourceFailedException();
+        }
+    }
+}
