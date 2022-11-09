@@ -5,7 +5,7 @@ namespace App\Containers\{{section-name}}\{{container-name}}\Actions;
 use Apiato\Core\Exceptions\IncorrectIdException;
 use App\Containers\{{section-name}}\{{container-name}}\Models\{{model}};
 use App\Containers\{{section-name}}\{{container-name}}\Tasks\Update{{model}}Task;
-use App\Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Data\Dto\Update{{model}}Dto;
+use App\Containers\{{section-name}}\{{container-name}}\Data\Dto\Update{{model}}Dto;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Actions\Action as ParentAction;
