@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Containers\{{section-name}}\{{container-name}}\Actions;
+
+use Apiato\Core\Exceptions\IncorrectIdException;
+use App\Containers\{{section-name}}\{{container-name}}\Models\{{model}};
+use App\Containers\{{section-name}}\{{container-name}}\Tasks\Update{{model}}Task;
+use App\Containers\{{section-name}}\{{container-name}}\UI\{{ui}}\Data\Dto\Update{{model}}Dto;
+use App\Ship\Exceptions\NotFoundException;
+use App\Ship\Exceptions\UpdateResourceFailedException;
+use App\Ship\Parents\Actions\Action as ParentAction;
+
+class {{class-name}} extends ParentAction
+{
+    /**
+     * @param Update{{model}}Dto $dto
+     * @param $id
+     * @return {{model}}
+     * @throws UpdateResourceFailedException
+     * @throws IncorrectIdException
+     * @throws NotFoundException
+     */
+    public function run(Update{{model}}Dto $dto, $id): {{model}}
+    {
+        return app(Update{{model}}Task::class)->run($dto, $id);
+    }
+}
