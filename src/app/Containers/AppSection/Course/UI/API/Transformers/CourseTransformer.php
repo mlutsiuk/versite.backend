@@ -20,6 +20,9 @@ class CourseTransformer extends ParentTransformer
         $response = [
             'object' => $course->getResourceKey(),
             'id' => $course->getHashedKey(),
+            'slug' => $course->slug,
+            'title' => $course->title,
+            'description' => $course->description
         ];
 
         return $this->ifAdmin([
@@ -28,7 +31,7 @@ class CourseTransformer extends ParentTransformer
             'updated_at' => $course->updated_at,
             'readable_created_at' => $course->created_at->diffForHumans(),
             'readable_updated_at' => $course->updated_at->diffForHumans(),
-            // 'deleted_at' => $course->deleted_at,
+            'deleted_at' => $course->deleted_at,
         ], $response);
     }
 }
