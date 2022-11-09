@@ -22,8 +22,6 @@ class {{class-name}} extends ParentTask
      */
     public function run($id): int
     {
-        throw new NotImplementedException();
-
         try {
             return $this->repository->delete($id);
         } catch (ModelNotFoundException) {
