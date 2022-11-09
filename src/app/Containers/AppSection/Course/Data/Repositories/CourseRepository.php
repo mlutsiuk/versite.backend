@@ -13,6 +13,7 @@ class CourseRepository extends ParentRepository
         'id' => '=',
         'title' => 'like',
         'description' => 'like',
+        'author_id' => '=',
         'created_at' => 'like',
         'updated_at' => 'like'
     ];

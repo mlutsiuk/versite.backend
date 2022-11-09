@@ -7,6 +7,7 @@ use App\Containers\AppSection\Course\Data\Repositories\CourseRepository;
 use App\Containers\AppSection\Course\Models\Course;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
+use Auth;
 use Exception;
 
 class CreateCourseTask extends ParentTask
@@ -27,7 +28,8 @@ class CreateCourseTask extends ParentTask
             $course = $this->repository->create([
                 'slug' => $dto->slug,
                 'title' => $dto->title,
-                'description' => $dto->description
+                'description' => $dto->description,
+                'author_id' => Auth::id()
             ]);
 
             return $course;

@@ -15,10 +15,12 @@ return new class extends Migration {
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('description');
-//            $table->unsignedBigInteger('author_id');    TODO: courses.author_id
+            $table->unsignedBigInteger('author_id');
 
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('author_id')->references('id')->on('users');
         });
     }
 

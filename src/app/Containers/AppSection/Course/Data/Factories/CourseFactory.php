@@ -12,9 +12,10 @@ class CourseFactory extends ParentFactory
     public function definition(): array
     {
         return [
-             'title' => $this->faker->title(),
-             'slug' => $this->faker->slug(),
-             'description' => $this->faker->text()
+            'title' => $this->faker->title(),
+            'slug' => $this->faker->slug(),
+            'description' => $this->faker->text(),
+            'author_id' => 1
         ];
     }
 }

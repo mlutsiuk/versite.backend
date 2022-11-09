@@ -3,7 +3,9 @@
 namespace App\Containers\AppSection\Course\UI\API\Transformers;
 
 use App\Containers\AppSection\Course\Models\Course;
+use App\Containers\AppSection\Group\UI\API\Transformers\GroupTransformer;
 use App\Ship\Parents\Transformers\Transformer as ParentTransformer;
+use League\Fractal\Resource\Collection;
 
 class CourseTransformer extends ParentTransformer
 {
@@ -12,7 +14,7 @@ class CourseTransformer extends ParentTransformer
     ];
 
     protected array $availableIncludes = [
-
+        'groups'
     ];
 
     public function transform(Course $course): array
@@ -22,6 +24,7 @@ class CourseTransformer extends ParentTransformer
             'id' => $course->getHashedKey(),
             'slug' => $course->slug,
             'title' => $course->title,
+            'author_id' => $course->author_id,
             'description' => $course->description
         ];
 
@@ -33,5 +36,10 @@ class CourseTransformer extends ParentTransformer
             'readable_updated_at' => $course->updated_at->diffForHumans(),
             'deleted_at' => $course->deleted_at,
         ], $response);
+    }
+
+    public function includeRoles(Course $course): Collection
+    {
+        return $this->collection($course->groups, new GroupTransformer());
     }
 }
