@@ -38,7 +38,7 @@ class CourseTransformer extends ParentTransformer
         ], $response);
     }
 
-    public function includeRoles(Course $course): Collection
+    public function includeGroups(Course $course): Collection
     {
         return $this->collection($course->groups, new GroupTransformer());
     }
