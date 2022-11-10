@@ -3,8 +3,10 @@
 namespace App\Containers\AppSection\User\Models;
 
 use App\Containers\AppSection\Authorization\Traits\AuthorizationTrait;
+use App\Containers\AppSection\Group\Models\Group;
 use App\Ship\Parents\Models\UserModel as ParentUserModel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Validation\Rules\Password;
 
@@ -53,5 +55,20 @@ class User extends ParentUserModel implements MustVerifyEmail
             ->mixedCase()
             ->numbers()
             ->symbols();
+    }
+
+    /**
+     * Group members(students), many-to-many relations.
+     *
+     * @return BelongsToMany
+     */
+    public function groups(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Group::class,
+            'group_members',
+            'id',
+            'id'
+        );
     }
 }

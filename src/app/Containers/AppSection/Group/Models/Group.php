@@ -2,7 +2,9 @@
 
 namespace App\Containers\AppSection\Group\Models;
 
+use App\Containers\AppSection\User\Models\User;
 use App\Ship\Parents\Models\Model as ParentModel;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Group extends ParentModel
 {
@@ -26,4 +28,19 @@ class Group extends ParentModel
      * A resource key to be used in the serialized responses.
      */
     protected string $resourceKey = 'Group';
+
+    /**
+     * Group members(students), many-to-many relations.
+     *
+     * @return BelongsToMany
+     */
+    public function members(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            User::class,
+            'group_members',
+            'id',
+            'id'
+        );
+    }
 }
