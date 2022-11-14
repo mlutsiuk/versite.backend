@@ -6,9 +6,8 @@
         window.opener.postMessage({
             source: 'versite@auth-google-callback',
             payload: @json($payload)
-        }, 'http://localhost:3000')
-        // TODO: Add frontend app url to env
-        window.close()
+        }, '*');
+        window.close();
     </script>
 </head>
 <body>
