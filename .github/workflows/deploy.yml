@@ -21,11 +21,12 @@ jobs:
           host: ${{ secrets.HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
             cd /var/www/versite.backend
             git pull
-            
+
             cd src
             docker-compose exec php composer install --no-interaction
             docker-compose exec php php artisan migrate
