@@ -2,7 +2,9 @@
 
 namespace App\Containers\AppSection\Lesson\Models;
 
+use App\Containers\AppSection\Group\Models\Group;
 use App\Ship\Parents\Models\Model as ParentModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Lesson extends ParentModel
 {
@@ -24,4 +26,14 @@ class Lesson extends ParentModel
      * A resource key to be used in the serialized responses.
      */
     protected string $resourceKey = 'Lesson';
+
+    /**
+     * Lesson group, many-to-one relation.
+     *
+     * @return BelongsTo
+     */
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(Group::class, 'group_id', 'id');
+    }
 }
