@@ -12,6 +12,7 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
+ * @apiParam            {String} id Group id
  *
  * @apiUse              GroupSuccessSingleResponse
  */

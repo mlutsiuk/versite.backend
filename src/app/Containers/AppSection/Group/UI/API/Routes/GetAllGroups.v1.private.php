@@ -12,8 +12,6 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiParam            {String} parameters here...
- *
  * @apiUse              GeneralSuccessMultipleResponse
  */
 
