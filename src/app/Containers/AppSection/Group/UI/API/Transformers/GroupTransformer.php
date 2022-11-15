@@ -23,6 +23,7 @@ class GroupTransformer extends ParentTransformer
             'title' => $group->title,
             'course_id' => $group->course_id,
             'is_draft' => $group->is_draft,
+            'is_private' => $group->is_private,
             'registration_start' => $group->registration_start,
             'registration_end' => $group->registration_end
         ];
