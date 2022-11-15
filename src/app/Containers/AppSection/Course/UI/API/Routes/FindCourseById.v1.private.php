@@ -5,7 +5,6 @@
  * @apiName             FindCourseById
  *
  * @api                 {GET} /v1/courses/:id Find Course By Id
- * @apiDescription      Find one course
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']

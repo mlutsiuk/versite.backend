@@ -5,7 +5,6 @@
  * @apiName             GetAllCourses
  *
  * @api                 {GET} /v1/courses Get All Courses
- * @apiDescription      Get all courses
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']

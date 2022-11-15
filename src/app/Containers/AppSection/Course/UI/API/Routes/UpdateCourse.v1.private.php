@@ -5,7 +5,6 @@
  * @apiName             UpdateCourse
  *
  * @api                 {PATCH} /v1/courses/:id Update Course
- * @apiDescription      Update course
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
