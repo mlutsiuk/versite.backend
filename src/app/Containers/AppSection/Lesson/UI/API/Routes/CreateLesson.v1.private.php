@@ -5,7 +5,6 @@
  * @apiName             CreateLesson
  *
  * @api                 {POST} /v1/lessons Create Lesson
- * @apiDescription      Endpoint description here...
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -13,13 +12,11 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiParam            {String} parameters here...
+ * @apiBody             {String} title
+ * @apiBody             {String} group_id Group which are lesson created for
+ * @apiBody             {Datetime} open_at When lesson are being available to student
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiUse              LessonSuccessSingleResponse
  */
 
 use App\Containers\AppSection\Lesson\UI\API\Controllers\CreateLessonController;

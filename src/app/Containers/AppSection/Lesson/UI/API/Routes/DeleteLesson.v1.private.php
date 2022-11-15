@@ -5,7 +5,6 @@
  * @apiName             DeleteLesson
  *
  * @api                 {DELETE} /v1/lessons/:id Delete Lesson
- * @apiDescription      Endpoint description here...
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -13,13 +12,9 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiParam            {String} parameters here...
+ * @apiParam            {String} id Lesson id
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiUse              GeneralAcceptedResponse
  */
 
 use App\Containers\AppSection\Lesson\UI\API\Controllers\DeleteLessonController;
