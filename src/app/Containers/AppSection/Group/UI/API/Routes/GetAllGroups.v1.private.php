@@ -5,7 +5,6 @@
  * @apiName             GetAllGroups
  *
  * @api                 {GET} /v1/groups Get All Groups
- * @apiDescription      Endpoint description here...
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -15,11 +14,7 @@
  *
  * @apiParam            {String} parameters here...
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiUse              GeneralSuccessMultipleResponse
  */
 
 use App\Containers\AppSection\Group\UI\API\Controllers\GetAllGroupsController;

@@ -5,7 +5,7 @@
  * @apiName             CreateGroup
  *
  * @api                 {POST} /v1/groups Create Group
- * @apiDescription      Endpoint description here...
+ * @apiDescription      Create new group for course
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -13,13 +13,13 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiParam            {String} parameters here...
+ * @apiBody             {String} course_id Parent course for the group
+ * @apiBody             {String} title
+ * @apiBody             {Boolean} is_private Is registration to this group are open, or it requires personal invitation
+ * @apiBody             {Timestamp} registration_start Registration start for students
+ * @apiBody             {Timestamp} registration_end Registration deadline for students
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiUse              GroupSuccessSingleResponse
  */
 
 use App\Containers\AppSection\Group\UI\API\Controllers\CreateGroupController;

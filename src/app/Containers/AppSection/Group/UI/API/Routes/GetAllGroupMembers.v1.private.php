@@ -5,7 +5,7 @@
  * @apiName             GetAllGroupMembers
  *
  * @api                 {GET} /v1/groups/:group_id/members Get All Group Members
- * @apiDescription      Endpoint description here...
+ * @apiDescription      Get paginated users that are members(students) of selected group
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -13,13 +13,9 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiParam            {String} parameters here...
+ * @apiParam            {String} group_id Group id
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiUse              GeneralSuccessMultipleResponse
  */
 
 use App\Containers\AppSection\Group\UI\API\Controllers\GetAllGroupMembersController;
