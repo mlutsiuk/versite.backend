@@ -35,7 +35,20 @@ class UpdateLessonRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            // 'id' => 'required'
+            'title' => [
+                'required',
+                'string',
+                'min:1',
+                'max:150'
+            ],
+            'group_id' => [
+                'required',
+                'exists:groups,id'
+            ],
+            'open_at' => [
+                'required',
+                'date'
+            ]
         ];
     }
 
