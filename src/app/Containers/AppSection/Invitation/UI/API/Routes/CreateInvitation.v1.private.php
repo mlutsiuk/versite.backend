@@ -5,7 +5,6 @@
  * @apiName             CreateInvitation
  *
  * @api                 {POST} /v1/invitations Create Invitation
- * @apiDescription      Endpoint description here...
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -13,13 +12,10 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiParam            {String} parameters here...
+ * @apiBody             {String} receiver_id Invitation receiver (student)
+ * @apiBody             {String} group_id Invitation target group
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiUse              InvitationSuccessSingleResponse
  */
 
 use App\Containers\AppSection\Invitation\UI\API\Controllers\CreateInvitationController;
