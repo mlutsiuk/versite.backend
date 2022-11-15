@@ -5,7 +5,7 @@
  * @apiName             GetAllCourses
  *
  * @api                 {GET} /v1/courses Get All Courses
- * @apiDescription      Endpoint description here...
+ * @apiDescription      Get all courses
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -13,11 +13,7 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiUse              GeneralSuccessMultipleResponse
  */
 
 use App\Containers\AppSection\Course\UI\API\Controllers\Controller;

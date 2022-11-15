@@ -5,7 +5,7 @@
  * @apiName             FindCourseById
  *
  * @api                 {GET} /v1/courses/:id Find Course By Id
- * @apiDescription      Endpoint description here...
+ * @apiDescription      Find one course
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -15,11 +15,7 @@
  *
  * @apiParam            {String} id Course id
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiUse              CourseSuccessSingleResponse
  */
 
 use App\Containers\AppSection\Course\UI\API\Controllers\Controller;

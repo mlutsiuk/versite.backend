@@ -5,7 +5,7 @@
  * @apiName             DeleteCourse
  *
  * @api                 {DELETE} /v1/courses/:id Delete Course
- * @apiDescription      Endpoint description here...
+ * @apiDescription      Delete course
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -15,10 +15,10 @@
  *
  * @apiParam            {String} id Course id
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
+ * @apiSuccessExample   {json}       Success-Response:
+ * HTTP/1.1 202 OK
  * {
- *     // Insert the response of the request here...
+ *      "message": "Course Deleted Successfully."
  * }
  */
 

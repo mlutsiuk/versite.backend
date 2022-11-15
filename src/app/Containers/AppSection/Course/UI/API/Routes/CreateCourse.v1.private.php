@@ -5,7 +5,7 @@
  * @apiName             CreateCourse
  *
  * @api                 {POST} /v1/courses Create Course
- * @apiDescription      Endpoint description here...
+ * @apiDescription      Create new course authored by authenticated user
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -13,11 +13,11 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiBody             {String} slug
+ * @apiBody             {String} title
+ * @apiBody             {String} description
+ *
+ * @apiUse              CourseSuccessSingleResponse
  */
 
 use App\Containers\AppSection\Course\UI\API\Controllers\Controller;

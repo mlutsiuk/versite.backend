@@ -5,7 +5,7 @@
  * @apiName             UpdateCourse
  *
  * @api                 {PATCH} /v1/courses/:id Update Course
- * @apiDescription      Endpoint description here...
+ * @apiDescription      Update course
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']
@@ -15,11 +15,11 @@
  *
  * @apiParam            {String} id Course id
  *
- * @apiSuccessExample   {json} Success-Response:
- * HTTP/1.1 200 OK
- * {
- *     // Insert the response of the request here...
- * }
+ * @apiBody             {String} slug
+ * @apiBody             {String} title
+ * @apiBody             {String} description
+ *
+ * @apiUse              CourseSuccessSingleResponse
  */
 
 use App\Containers\AppSection\Course\UI\API\Controllers\Controller;
