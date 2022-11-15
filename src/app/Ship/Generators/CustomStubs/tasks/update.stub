@@ -31,7 +31,7 @@ class {{class-name}} extends ParentTask
 
         try {
             return $this->repository->update([
-                 // 'title' => $dto->title
+//                'title' => $dto->title
              ], $id);
         } catch (ModelNotFoundException) {
             throw new NotFoundException();
