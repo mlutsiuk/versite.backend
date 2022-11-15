@@ -2,13 +2,16 @@
 
 namespace App\Containers\AppSection\Lesson\UI\API\Transformers;
 
+use App\Containers\AppSection\Group\UI\API\Transformers\GroupTransformer;
 use App\Containers\AppSection\Lesson\Models\Lesson;
 use App\Ship\Parents\Transformers\Transformer as ParentTransformer;
+use League\Fractal\Resource\Item;
 
 class LessonTransformer extends ParentTransformer
 {
     protected array $defaultIncludes = [
-
+        'group',
+//        'material'    // TODO
     ];
 
     protected array $availableIncludes = [
@@ -20,6 +23,9 @@ class LessonTransformer extends ParentTransformer
         $response = [
             'object' => $lesson->getResourceKey(),
             'id' => $lesson->getHashedKey(),
+            'title' => $lesson->title,
+            'group_id' => $lesson->group_id,
+            'open_at' => $lesson->open_at,
         ];
 
         return $this->ifAdmin([
@@ -31,4 +37,14 @@ class LessonTransformer extends ParentTransformer
             // 'deleted_at' => $lesson->deleted_at,
         ], $response);
     }
+
+    public function includeGroup(Lesson $lesson): Item
+    {
+        return $this->item($lesson->group, new GroupTransformer());
+    }
+
+//    public function includeMaterial(Lesson $lesson): Item
+//    {
+//        return $this->item($lesson->material, new MaterialTransformer());
+//    }
 }
