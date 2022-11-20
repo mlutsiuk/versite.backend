@@ -31,7 +31,6 @@ class UpdateLessonTask extends ParentTask
             return $this->repository->update([
                 'title' => $dto->title,
                 'group_id' => $dto->group_id,
-//                'material_id' => $dto->material_id,
                 'open_at' => $dto->open_at
              ], $id);
         } catch (ModelNotFoundException) {

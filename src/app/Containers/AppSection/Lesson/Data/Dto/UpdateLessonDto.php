@@ -18,11 +18,6 @@ class UpdateLessonDto extends ParentDto
      */
     public string $group_id;
 
-//    /**
-//     * @var string Lesson material
-//     */
-//    public string $material_id;
-
     /**
      * @var string When lesson are being available to student
      */

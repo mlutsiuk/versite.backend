@@ -2,8 +2,10 @@
 
 namespace App\Containers\AppSection\Group\Models;
 
+use App\Containers\AppSection\Course\Models\Course;
 use App\Containers\AppSection\User\Models\User;
 use App\Ship\Parents\Models\Model as ParentModel;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Group extends ParentModel
@@ -42,5 +44,15 @@ class Group extends ParentModel
             'id',
             'id'
         );
+    }
+
+    /**
+     * Group course, many-to-one relations.
+     *
+     * @return BelongsTo
+     */
+    public function course(): BelongsTo
+    {
+        return $this->belongsTo(Course::class, 'course_id', 'id');
     }
 }
