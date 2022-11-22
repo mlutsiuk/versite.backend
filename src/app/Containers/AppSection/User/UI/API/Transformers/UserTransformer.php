@@ -2,6 +2,7 @@
 
 namespace App\Containers\AppSection\User\UI\API\Transformers;
 
+use App\Containers\AppSection\Achievement\UI\API\Transformers\UserAchievementTransformer;
 use App\Containers\AppSection\Authorization\UI\API\Transformers\PermissionTransformer;
 use App\Containers\AppSection\Authorization\UI\API\Transformers\RoleTransformer;
 use App\Containers\AppSection\User\Models\User;
@@ -13,6 +14,7 @@ class UserTransformer extends ParentTransformer
     protected array $availableIncludes = [
         'roles',
         'permissions',
+        'achievements'
     ];
 
     protected array $defaultIncludes = [
@@ -49,5 +51,10 @@ class UserTransformer extends ParentTransformer
     public function includePermissions(User $user): Collection
     {
         return $this->collection($user->permissions, new PermissionTransformer());
+    }
+
+    public function includeAchievements(User $user): Collection
+    {
+        return $this->collection($user->achievements, new UserAchievementTransformer());
     }
 }

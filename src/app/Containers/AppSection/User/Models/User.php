@@ -2,11 +2,13 @@
 
 namespace App\Containers\AppSection\User\Models;
 
+use App\Containers\AppSection\Achievement\Models\UserAchievement;
 use App\Containers\AppSection\Authorization\Traits\AuthorizationTrait;
 use App\Containers\AppSection\Group\Models\Group;
 use App\Ship\Parents\Models\UserModel as ParentUserModel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Validation\Rules\Password;
 
@@ -70,5 +72,10 @@ class User extends ParentUserModel implements MustVerifyEmail
             'id',
             'id'
         );
+    }
+
+    public function achievements(): HasMany
+    {
+        return $this->hasMany(UserAchievement::class, 'user_id', 'id');
     }
 }
