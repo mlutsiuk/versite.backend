@@ -10,12 +10,12 @@ use League\Fractal\Resource\Item;
 class UserAchievementTransformer extends ParentTransformer
 {
     protected array $defaultIncludes = [
-        'user',
-        'course_achievement'
+
     ];
 
     protected array $availableIncludes = [
-
+        'user',
+        'course_achievement'
     ];
 
     public function transform(UserAchievement $userAchievement): array
@@ -44,6 +44,6 @@ class UserAchievementTransformer extends ParentTransformer
 
     public function includeCourseAchievement(UserAchievement $userAchievement): Item
     {
-        return $this->item($userAchievement->user, new UserTransformer());
+        return $this->item($userAchievement->course_achievement, new CourseAchievementTransformer());
     }
 }
