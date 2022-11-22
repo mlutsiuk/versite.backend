@@ -17,9 +17,9 @@ class GetAllCourseAchievementsController extends ApiController
      * @throws CoreInternalErrorException
      * @throws RepositoryException
      */
-    public function getAllAchievements(GetAllCourseAchievementsRequest $request): array
+    public function getAllAchievements(GetAllCourseAchievementsRequest $request, $courseId): array
     {
-        $achievements = app(GetAllCourseAchievementsAction::class)->run();
+        $achievements = app(GetAllCourseAchievementsAction::class)->run($courseId);
 
         return $this->transform($achievements, CourseAchievementTransformer::class);
     }

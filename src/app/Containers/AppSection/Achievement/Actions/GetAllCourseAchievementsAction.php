@@ -13,8 +13,8 @@ class GetAllCourseAchievementsAction extends ParentAction
      * @throws CoreInternalErrorException
      * @throws RepositoryException
      */
-    public function run(): mixed
+    public function run($courseId): mixed
     {
-        return app(GetAllCourseAchievementsTask::class)->run();
+        return app(GetAllCourseAchievementsTask::class)->run($courseId);
     }
 }

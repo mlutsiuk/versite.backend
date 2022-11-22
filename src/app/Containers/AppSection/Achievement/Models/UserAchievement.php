@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Achievement\Models;
 
-use App\Models\User;
+use App\Containers\AppSection\User\Models\User;
 use App\Ship\Parents\Models\Model as ParentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -28,5 +28,10 @@ class UserAchievement extends ParentModel
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function course_achievement(): BelongsTo
+    {
+        return $this->belongsTo(CourseAchievement::class);
     }
 }

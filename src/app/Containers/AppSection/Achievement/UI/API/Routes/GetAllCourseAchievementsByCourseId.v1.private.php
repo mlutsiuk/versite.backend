@@ -24,6 +24,6 @@
 use App\Containers\AppSection\Achievement\UI\API\Controllers\GetAllCourseAchievementsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('achievements', [GetAllCourseAchievementsController::class, 'getAllAchievements'])
+Route::get('courses/{courseId}/achievements', [GetAllCourseAchievementsController::class, 'getAllAchievements'])
     ->middleware(['auth:api']);
 
