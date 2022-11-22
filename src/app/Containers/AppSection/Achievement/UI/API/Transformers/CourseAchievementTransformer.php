@@ -23,6 +23,7 @@ class CourseAchievementTransformer extends ParentTransformer
             'object' => $courseAchievement->getResourceKey(),
             'id' => $courseAchievement->getHashedKey(),
             'title' => $courseAchievement->title,
+            'course_id' => $courseAchievement->course_id,
             'description' => $courseAchievement->description,
             'title_color' => $courseAchievement->title_color,
             'description_color' => $courseAchievement->description_color,
