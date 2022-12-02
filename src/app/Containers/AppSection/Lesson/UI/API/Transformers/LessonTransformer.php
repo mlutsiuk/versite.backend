@@ -10,12 +10,12 @@ use League\Fractal\Resource\Item;
 class LessonTransformer extends ParentTransformer
 {
     protected array $defaultIncludes = [
-        'group',
-//        'material'    // TODO
+
     ];
 
     protected array $availableIncludes = [
-
+        'group',
+//        'material'    // TODO
     ];
 
     public function transform(Lesson $lesson): array
