@@ -5,7 +5,6 @@
  * @apiName             GetAllUsers
  *
  * @api                 {GET} /v1/users Get All Users
- * @apiDescription      Endpoint description here...
  *
  * @apiVersion          1.0.0
  * @apiPermission       Authenticated ['permissions' => '', 'roles' => '']

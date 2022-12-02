@@ -2,9 +2,9 @@
 
 /**
  * @apiGroup            User
- * @apiName             FindUserById
+ * @apiName             FindUserByNickname
  *
- * @api                 {GET} /v1/users/:nickname Find User By Id
+ * @api                 {GET} /v1/users/:nickname Find User By Nickname
  * @apiDescription      Endpoint description here...
  *
  * @apiVersion          1.0.0
