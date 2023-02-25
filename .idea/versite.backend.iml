@@ -43,7 +43,6 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/graham-campbell/manager" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/tijsverkoyen/css-to-inline-styles" />
-      <excludeFolder url="file://$MODULE_DIR$/src/vendor/stella-maris/clock" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/nunomaduro/termwind" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/nunomaduro/collision" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/guzzlehttp/psr7" />
@@ -92,7 +91,6 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/psr-http-message-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-uuid" />
-      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php81" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php80" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-mbstring" />
@@ -149,10 +147,11 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/league/oauth1-client" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/socialite" />
       <excludeFolder url="file://$MODULE_DIR$/src/storage/debugbar" />
-      <excludeFolder url="file://$MODULE_DIR$/src/vendor/_laravel_idea" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/data-transfer-object" />
-      <excludeFolder url="file://$MODULE_DIR$/src/vendor/apiato/documentation-generator-container" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/laravel-permission" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/guzzlehttp/uri-template" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/_laravel_idea" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

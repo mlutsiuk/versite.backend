@@ -14,13 +14,16 @@ RUN sed -i "s/user = www-data/user = root/g" /usr/local/etc/php-fpm.d/www.conf
 RUN sed -i "s/group = www-data/group = root/g" /usr/local/etc/php-fpm.d/www.conf
 RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
 
-#RUN docker-php-ext-install pdo pdo_mysql intl
+RUN set -ex \
+  && apk --no-cache add \
+    postgresql-dev
+
 RUN docker-php-ext-install  gettext
 RUN docker-php-ext-configure intl \
     && docker-php-ext-configure gettext \
     && docker-php-ext-install \
     pdo  \
-    pdo_mysql \
+    pdo_pgsql \
     intl \
     gettext \
     bcmath
