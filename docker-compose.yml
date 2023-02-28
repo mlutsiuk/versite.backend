@@ -38,11 +38,12 @@ services:
 
   php:
     build:
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
+      context: ./
+      dockerfile: dockerfiles/php.dockerfile
     container_name: versite_php
     volumes:
       - ./src:/var/www/html:delegated
+      - /var/www/html/vendor
     networks:
       - laravel
 

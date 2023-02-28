@@ -28,6 +28,8 @@ RUN docker-php-ext-configure intl \
     gettext \
     bcmath
 
+COPY ./src/vendor ./vendor
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
