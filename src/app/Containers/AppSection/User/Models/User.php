@@ -52,11 +52,7 @@ class User extends ParentUserModel implements MustVerifyEmail
 
     public static function getPasswordValidationRules(): Password
     {
-        return Password::min(8)
-            ->letters()
-            ->mixedCase()
-            ->numbers()
-            ->symbols();
+        return Password::min(8);
     }
 
     /**
