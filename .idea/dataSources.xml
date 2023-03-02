@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Docker DB" uuid="0ef2e884-41b6-4291-b99d-3f2b8ba10a9d">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:4306</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="homestead@localhost" uuid="1ab5229e-55cc-445e-a136-9a0a8f8dc9e4">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
