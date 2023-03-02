@@ -5,6 +5,7 @@ namespace App\Containers\AppSection\Authentication\Tasks;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Laravel\Socialite\Contracts\User;
 use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\Two\GithubProvider;
 
 class GetGoogleSocialiteUserTask extends ParentTask
 {
@@ -15,6 +16,9 @@ class GetGoogleSocialiteUserTask extends ParentTask
      */
     public function run(): User
     {
-        return Socialite::driver('google')->stateless()->user();
+        /** @var GithubProvider $provider */
+        $provider = Socialite::driver('google');
+
+        return $provider->stateless()->user();
     }
 }
