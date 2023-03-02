@@ -32,7 +32,7 @@ class RegisterUserFromGoogleTask extends ParentTask
 
         try {
             $user = $this->repository->create($data);
-
+            $user = $this->repository->update(['nickname' => "id{$user->id}"], $user->id);
         } catch (Exception) {
             throw new CreateResourceFailedException();
         } finally {

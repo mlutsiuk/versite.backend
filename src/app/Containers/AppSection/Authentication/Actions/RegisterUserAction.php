@@ -7,6 +7,7 @@ use App\Containers\AppSection\Authentication\Exceptions\LoginFailedException;
 use App\Containers\AppSection\Authentication\Tasks\CreateAccessTokenForAuthenticatedUserTask;
 use App\Containers\AppSection\Authentication\Tasks\HashPasswordTask;
 use App\Containers\AppSection\User\Data\Repositories\UserRepository;
+use App\Containers\AppSection\User\Models\User;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Actions\Action as ParentAction;
 use Exception;
@@ -35,7 +36,9 @@ class RegisterUserAction extends ParentAction
         ];
 
         try {
+            /** @var User $user */
             $user = $this->repository->create($data);
+            $user = $this->repository->update(['nickname' => "id{$user->id}"], $user->id);
         } catch (Exception) {
             throw new CreateResourceFailedException();
         }
