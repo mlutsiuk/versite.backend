@@ -13,10 +13,10 @@ class RegisterUserDto extends ParentDto
      */
     public string $name;
 
-    /**
-     * @var string User nickname
-     */
-    public string $nickname;
+//    /**
+//     * @var string User nickname
+//     */
+//    public string $nickname;
 
     /**
      * @var string User email

@@ -29,7 +29,7 @@ class RegisterUserAction extends ParentAction
     {
         $data = [
             'name' => $dto->name,
-            'nickname' => $dto->nickname,
+//            'nickname' => $dto->nickname,
             'email' => $dto->email,
             'password' => app(HashPasswordTask::class)->run($dto->password)
         ];
