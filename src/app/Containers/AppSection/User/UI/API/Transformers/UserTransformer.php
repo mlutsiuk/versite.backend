@@ -30,8 +30,7 @@ class UserTransformer extends ParentTransformer
             'nickname' => $user->nickname,
             'email' => $user->email,
             'avatar' => $user->avatar,
-            'email_verified_at' => $user->email_verified_at,
-            'is_registration_completed' => $user->is_registration_completed,
+            'email_verified_at' => $user->email_verified_at
         ];
 
         return $this->ifAdmin([

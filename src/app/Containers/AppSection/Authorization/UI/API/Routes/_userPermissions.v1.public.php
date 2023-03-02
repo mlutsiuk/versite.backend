@@ -13,7 +13,6 @@ HTTP/1.1 200 OK
         "email": "maksym.lutsiuk@oa.edu.ua",
         "avatar": "https://lh3.googleusercontent.com/a/ALm5wu0D...",
         "email_verified_at": "2022-10-26T03:02:56.000000Z",
-        "is_registration_completed": true,
         "created_at": "2022-06-14T06:19:18.000000Z",
         "updated_at": "2022-06-14T06:25:00.000000Z",
         "permissions":{

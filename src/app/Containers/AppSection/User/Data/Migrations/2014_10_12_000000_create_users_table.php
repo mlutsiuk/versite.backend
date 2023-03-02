@@ -22,7 +22,6 @@ return new class extends Migration {
             $table->string('avatar')->nullable();
             $table->string('password')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->boolean('is_registration_completed')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

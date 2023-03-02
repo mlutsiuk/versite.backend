@@ -46,8 +46,7 @@ class User extends ParentUserModel implements MustVerifyEmail
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'is_registration_completed' => 'boolean'
+        'email_verified_at' => 'datetime'
     ];
 
     public static function getPasswordValidationRules(): Password
