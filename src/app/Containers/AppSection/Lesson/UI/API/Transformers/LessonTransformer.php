@@ -2,10 +2,8 @@
 
 namespace App\Containers\AppSection\Lesson\UI\API\Transformers;
 
-use App\Containers\AppSection\Group\UI\API\Transformers\GroupTransformer;
 use App\Containers\AppSection\Lesson\Models\Lesson;
 use App\Ship\Parents\Transformers\Transformer as ParentTransformer;
-use League\Fractal\Resource\Item;
 
 class LessonTransformer extends ParentTransformer
 {

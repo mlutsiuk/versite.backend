@@ -3,7 +3,6 @@
 namespace App\Containers\AppSection\Course\UI\API\Transformers;
 
 use App\Containers\AppSection\Course\Models\Course;
-use App\Containers\AppSection\Group\UI\API\Transformers\GroupTransformer;
 use App\Ship\Parents\Transformers\Transformer as ParentTransformer;
 use League\Fractal\Resource\Collection;
 
@@ -14,7 +13,8 @@ class CourseTransformer extends ParentTransformer
     ];
 
     protected array $availableIncludes = [
-        'groups'
+// TODO
+//        'groups'
     ];
 
     public function transform(Course $course): array
@@ -37,8 +37,9 @@ class CourseTransformer extends ParentTransformer
         ], $response);
     }
 
-    public function includeGroups(Course $course): Collection
-    {
-        return $this->collection($course->groups, new GroupTransformer());
-    }
+// TODO
+//    public function includeGroups(Course $course): Collection
+//    {
+//        return $this->collection($course->groups, new GroupTransformer());
+//    }
 }

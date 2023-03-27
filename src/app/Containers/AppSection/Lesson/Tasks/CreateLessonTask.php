@@ -25,9 +25,8 @@ class CreateLessonTask extends ParentTask
         try {
             return $this->repository->create([
                 'title' => $dto->title,
-                'group_id' => $dto->course_id,
-                'material_id' => $materialId,
-                'open_at' => $dto->date
+                'course_id' => $dto->course_id,
+                'date' => $dto->date
             ]);
 
         } catch (Exception) {
