@@ -20,7 +20,7 @@ class CreateLessonTask extends ParentTask
     /**
      * @throws CreateResourceFailedException
      */
-    public function run(CreateLessonDto $dto, $materialId): Lesson
+    public function run(CreateLessonDto $dto): Lesson
     {
         try {
             return $this->repository->create([
