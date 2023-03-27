@@ -31,7 +31,7 @@ class Lesson extends ParentModel
     protected string $resourceKey = 'Lesson';
 
     /**
-     * Lesson group, many-to-one relation.
+     * Lesson course, many-to-one relation.
      *
      * @return BelongsTo
      */
