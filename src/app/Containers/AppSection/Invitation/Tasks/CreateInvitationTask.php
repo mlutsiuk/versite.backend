@@ -26,7 +26,8 @@ class CreateInvitationTask extends ParentTask
         try {
             return $this->repository->create([
                 'receiver_id' => $dto->receiver_id,
-                'group_id' => $dto->group_id
+                'student_id' => $dto->student_id,
+                'email' => $dto->email
             ]);
         } catch (Exception) {
             throw new CreateResourceFailedException();

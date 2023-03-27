@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Invitation\Models;
 
-use App\Containers\AppSection\Group\Models\Group;
+use App\Containers\AppSection\Student\Models\Student;
 use App\Containers\AppSection\User\Models\User;
 use App\Ship\Parents\Models\Model as ParentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,7 +12,7 @@ class Invitation extends ParentModel
     protected $fillable = [
         'receiver_id',
         'group_id',
-        'is_accepted'
+        'is_hidden'
     ];
 
     protected $hidden = [
@@ -20,7 +20,7 @@ class Invitation extends ParentModel
     ];
 
     protected $casts = [
-        'is_accepted' => 'boolean',
+        'is_hidden' => 'boolean',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
@@ -35,8 +35,8 @@ class Invitation extends ParentModel
         return $this->belongsTo(User::class, 'receiver_id', 'id');
     }
 
-    public function group(): BelongsTo
+    public function student(): BelongsTo
     {
-        return $this->belongsTo(Group::class, 'group_id', 'id');
+        return $this->belongsTo(Student::class, 'student_id', 'id');
     }
 }

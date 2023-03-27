@@ -12,12 +12,13 @@ return new class extends Migration {
     {
         Schema::create('invitations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('receiver_id');
-            $table->unsignedBigInteger('group_id');
+            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('receiver_id')->nullable();
+            $table->unsignedBigInteger('email')->nullable();
             $table->boolean('is_accepted');
 
+            $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('receiver_id')->references('id')->on('users');
-            $table->foreign('group_id')->references('id')->on('groups');
 
             $table->timestamps();
         });

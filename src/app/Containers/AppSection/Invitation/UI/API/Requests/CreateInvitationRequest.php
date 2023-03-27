@@ -35,8 +35,9 @@ class CreateInvitationRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            'receiver_id' => 'required|exists:users,id',
-            'group_id' => 'required|exists:groups,id'
+            'receiver_id' => 'nullable|exists:users,id',    // TODO: required_if
+            'student_id' => 'required|exists:students,id',
+            'email' => 'nullable|email|unique:users,email'
         ];
     }
 

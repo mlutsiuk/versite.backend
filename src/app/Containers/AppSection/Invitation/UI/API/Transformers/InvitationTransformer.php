@@ -2,8 +2,8 @@
 
 namespace App\Containers\AppSection\Invitation\UI\API\Transformers;
 
-use App\Containers\AppSection\Group\UI\API\Transformers\GroupTransformer;
 use App\Containers\AppSection\Invitation\Models\Invitation;
+use App\Containers\AppSection\Student\UI\API\Transformers\StudentTransformer;
 use App\Containers\AppSection\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer as ParentTransformer;
 use League\Fractal\Resource\Item;
@@ -25,7 +25,8 @@ class InvitationTransformer extends ParentTransformer
             'object' => $invitation->getResourceKey(),
             'id' => $invitation->getHashedKey(),
             'receiver_id' => $invitation->receiver_id,
-            'group_id' => $invitation->group_id
+            'student_id' => $invitation->student_id,
+            'email' => $invitation->email
         ];
 
         return $this->ifAdmin([
@@ -45,6 +46,6 @@ class InvitationTransformer extends ParentTransformer
 
     public function includeGroup(Invitation $invitation): Item
     {
-        return $this->item($invitation->group, new GroupTransformer());
+        return $this->item($invitation->student, new StudentTransformer());
     }
 }
