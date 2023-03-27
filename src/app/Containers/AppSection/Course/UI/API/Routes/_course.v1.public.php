@@ -8,7 +8,6 @@ HTTP/1.1 200 OK
     "data":{
         "object":"Course",
         "id":"n9kq6345javb05je",
-        "slug":"advanced-uiux-design-in-figma",
         "title":"Advanced UI/UX Design in Figma",
         "description":"Learn new powerful techniques to create amazing user experience",
         "author_id":"go3shc8sg8",

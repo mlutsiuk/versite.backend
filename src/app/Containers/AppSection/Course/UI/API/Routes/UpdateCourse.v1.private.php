@@ -14,7 +14,6 @@
  *
  * @apiParam            {String} id Course id
  *
- * @apiBody             {String} slug
  * @apiBody             {String} title
  * @apiBody             {String} description
  *

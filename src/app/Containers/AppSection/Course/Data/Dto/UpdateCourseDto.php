@@ -9,11 +9,6 @@ use Spatie\DataTransferObject\Attributes\Strict;
 class UpdateCourseDto extends ParentDto
 {
     /**
-     * @var string Course slug
-     */
-    public string $slug;
-
-    /**
      * @var string Course title
      */
     public string $title;

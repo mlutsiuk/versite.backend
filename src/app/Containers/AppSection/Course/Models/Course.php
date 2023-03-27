@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Course extends ParentModel
 {
     protected $fillable = [
-        'slug',
         'title',
         'description',
         'author_id'

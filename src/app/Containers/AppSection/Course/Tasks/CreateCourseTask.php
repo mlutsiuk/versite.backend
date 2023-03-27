@@ -26,7 +26,6 @@ class CreateCourseTask extends ParentTask
     {
         try {
             $course = $this->repository->create([
-                'slug' => $dto->slug,
                 'title' => $dto->title,
                 'description' => $dto->description,
                 'author_id' => Auth::id()

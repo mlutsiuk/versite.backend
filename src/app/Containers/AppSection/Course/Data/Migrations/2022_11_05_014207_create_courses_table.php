@@ -12,7 +12,6 @@ return new class extends Migration {
     {
         Schema::create('courses', function (Blueprint $table) {    // TODO
             $table->id();
-            $table->string('slug')->unique();
             $table->string('title');
             $table->string('description');
             $table->unsignedBigInteger('author_id');
@@ -29,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void    // TODO
     {
-        Schema::dropIfExists('courses');
+//        Schema::dropIfExists('courses');
     }
 };

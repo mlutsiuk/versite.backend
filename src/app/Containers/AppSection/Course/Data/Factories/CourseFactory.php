@@ -13,7 +13,6 @@ class CourseFactory extends ParentFactory
     {
         return [
             'title' => $this->faker->title(),
-            'slug' => $this->faker->slug(),
             'description' => $this->faker->text(),
             'author_id' => 1
         ];

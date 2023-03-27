@@ -29,7 +29,6 @@ class UpdateCourseTask extends ParentTask
     {
         try {
             $course = $this->repository->update([
-                'slug' => $dto->slug,
                 'title' => $dto->title,
                 'description' => $dto->description
             ], $id);

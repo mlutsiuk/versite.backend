@@ -35,13 +35,6 @@ class CreateCourseRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            'slug' => [
-                'required',
-                'string',
-                'min:4',
-                'max:32',
-                'unique:courses,slug'
-            ],
             'title' => [
                 'required',
                 'string',

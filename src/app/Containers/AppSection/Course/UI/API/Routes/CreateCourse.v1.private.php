@@ -13,7 +13,6 @@
  * @apiHeader           {String} accept=application/json
  * @apiHeader           {String} authorization=Bearer
  *
- * @apiBody             {String} slug
  * @apiBody             {String} title
  * @apiBody             {String} description
  *

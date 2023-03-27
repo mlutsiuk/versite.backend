@@ -22,7 +22,6 @@ class CourseTransformer extends ParentTransformer
         $response = [
             'object' => $course->getResourceKey(),
             'id' => $course->getHashedKey(),
-            'slug' => $course->slug,
             'title' => $course->title,
             'author_id' => $course->author_id,
             'description' => $course->description
