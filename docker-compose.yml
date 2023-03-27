@@ -4,25 +4,24 @@ networks:
   laravel:
 
 services:
-  nginx:
-    build:
-      context: ./dockerfiles
-      dockerfile: nginx.dockerfile
-    container_name: versite_nginx
-    ports:
-      - "8080:80"
-    volumes:
-      - ./src:/var/www/html:delegated
-    depends_on:
-      - php
-      - postgres
-    networks:
-      - laravel
+#  nginx:
+#    build:
+#      context: ./dockerfiles
+#      dockerfile: nginx.dockerfile
+#    container_name: versite_nginx
+#    ports:
+#      - "8080:80"
+#    volumes:
+#      - ./src:/var/www/html:delegated
+#    depends_on:
+#      - php
+#      - postgres
+#    networks:
+#      - laravel
 
   postgres:
     image: postgres:14.7-alpine
     container_name: versite_postgres
-    restart: unless-stopped
     tty: true
     ports:
       - "6432:5432"
@@ -39,14 +38,19 @@ services:
   php:
     build:
       context: ./
-      dockerfile: dockerfiles/php.dockerfile
+      dockerfile: dockerfiles/octane.dockerfile
     container_name: versite_php
+    command: [ "php", "artisan", "octane:start", "--host=0.0.0.0", "--port=8080" ]
+    ports:
+      - "8080:8080"
     volumes:
-      - ./src:/var/www/html:delegated
-      - /var/www/html/vendor
+      - octane:/var/www/html
+    depends_on:
+      - postgres
     networks:
       - laravel
 
 
 volumes:
   psql:
+  octane:

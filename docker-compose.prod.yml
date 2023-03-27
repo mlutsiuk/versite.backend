@@ -8,40 +8,42 @@ services:
     build:
       context: ./dockerfiles
       dockerfile: nginx.dockerfile
-    container_name: nginx
+    container_name: versite_nginx
     ports:
       - "8080:80"
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
       - php
-      - mysql
+      - postgres
     networks:
       - laravel
 
-  mysql:
-    image: mysql:5.7.39
-    container_name: mysql
+  postgres:
+    image: postgres:14.7-alpine
+    container_name: versite_postgres
     restart: unless-stopped
     tty: true
+    ports:
+      - "6432:5432"
     volumes:
-      - ./mysql:/var/lib/mysql
+      - psql:/var/lib/postgresql/data
     environment:
-      MYSQL_DATABASE: homestead
-      MYSQL_USER: homestead
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: secret
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      POSTGRES_DB: homestead
+      POSTGRES_USER: homestead
+      POSTGRES_PASSWORD: secret
+      PGDATA: /var/lib/postgresql/data/pgdata
     networks:
       - laravel
 
   php:
     build:
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
-    container_name: php
-    volumes:
-      - ./src:/var/www/html:delegated
+      context: ./
+      dockerfile: dockerfiles/php.prod.dockerfile
+    container_name: versite_php
     networks:
       - laravel
+
+
+volumes:
+  psql:

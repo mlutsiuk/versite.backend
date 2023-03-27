@@ -19,9 +19,9 @@ RUN set -ex \
     postgresql-dev
 
 RUN docker-php-ext-install  gettext
-RUN docker-php-ext-configure intl
-RUN docker-php-ext-configure gettext
-RUN docker-php-ext-install \
+RUN docker-php-ext-configure intl \
+    && docker-php-ext-configure gettext \
+    && docker-php-ext-install \
     sockets \
     pdo \
     pdo_pgsql \
@@ -29,7 +29,7 @@ RUN docker-php-ext-install \
     gettext \
     bcmath
 
-COPY ./src/vendor ./vendor
+COPY ./src ./
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

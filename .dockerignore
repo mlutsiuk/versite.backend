@@ -1,0 +1,16 @@
+/src/node_modules
+/src/package-lock.json
+/src/package.json
+#/src/public/hot
+/src/public/storage
+/src/storage/*.key
+/src/storage/framework/sessions
+/src/storage/framework/views
+/src/storage/framework/cache
+/src/storage/logs
+/src/vendor
+/src/phpunit.xml
+/src/tests
+#/src/storage/clockwork
+/src/bootstrap/cache
+/src/rr
