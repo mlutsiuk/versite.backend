@@ -25,7 +25,7 @@ class CreateLessonAction extends ParentAction
     public function run(CreateLessonDto $dto): Lesson
     {
         /** @var Course $course */
-        $course = app(GroupRepository::class)->with('course')->find($dto->group_id);
+        $course = app(GroupRepository::class)->with('course')->find($dto->course_id);
         $courseId = $course->id;
 
         $materialDto = new CreateLessonMaterialDto([

@@ -13,13 +13,13 @@ return new class extends Migration {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->unsignedBigInteger('group_id');
-            $table->timestamp('open_at')->nullable();
+            $table->unsignedBigInteger('course_id');
+            $table->timestamp('date');
 
             $table->timestamps();
             //$table->softDeletes();
 
-            $table->foreign('group_id')->references('id')->on('groups');
+            $table->foreign('course_id')->references('id')->on('courses');
         });
     }
 

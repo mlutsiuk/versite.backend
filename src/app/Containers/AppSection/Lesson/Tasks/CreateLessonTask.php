@@ -18,7 +18,6 @@ class CreateLessonTask extends ParentTask
     }
 
     /**
-     * @param CreateLessonDto $dto
      * @throws CreateResourceFailedException
      */
     public function run(CreateLessonDto $dto, $materialId): Lesson
@@ -26,9 +25,9 @@ class CreateLessonTask extends ParentTask
         try {
             return $this->repository->create([
                 'title' => $dto->title,
-                'group_id' => $dto->group_id,
+                'group_id' => $dto->course_id,
                 'material_id' => $materialId,
-                'open_at' => $dto->open_at
+                'open_at' => $dto->date
             ]);
 
         } catch (Exception) {

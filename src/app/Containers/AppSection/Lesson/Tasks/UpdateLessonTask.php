@@ -20,8 +20,6 @@ class UpdateLessonTask extends ParentTask
     }
 
     /**
-     * @param UpdateLessonDto $dto
-     * @param $id
      * @throws NotFoundException
      * @throws UpdateResourceFailedException
      */
@@ -30,8 +28,8 @@ class UpdateLessonTask extends ParentTask
         try {
             return $this->repository->update([
                 'title' => $dto->title,
-                'group_id' => $dto->group_id,
-                'open_at' => $dto->open_at
+                'date' => $dto->date,
+                'course_id' => $dto->course_id
              ], $id);
         } catch (ModelNotFoundException) {
             throw new NotFoundException();

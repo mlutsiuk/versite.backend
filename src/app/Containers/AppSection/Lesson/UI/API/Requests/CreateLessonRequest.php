@@ -26,11 +26,11 @@ class CreateLessonRequest extends ParentRequest
                 'min:1',
                 'max:150'
             ],
-            'group_id' => [
+            'course_id' => [
                 'required',
-                'exists:groups,id'
+                'exists:courses,id'
             ],
-            'open_at' => [
+            'date' => [
                 'required',
                 'date'
             ]

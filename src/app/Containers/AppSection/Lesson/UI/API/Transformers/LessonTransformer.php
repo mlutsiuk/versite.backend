@@ -14,7 +14,7 @@ class LessonTransformer extends ParentTransformer
     ];
 
     protected array $availableIncludes = [
-        'group',
+        'course',
 //        'material'    // TODO
     ];
 
@@ -24,8 +24,8 @@ class LessonTransformer extends ParentTransformer
             'object' => $lesson->getResourceKey(),
             'id' => $lesson->getHashedKey(),
             'title' => $lesson->title,
-            'group_id' => $lesson->group_id,
-            'open_at' => $lesson->open_at,
+            'course_id' => $lesson->course_id,
+            'date' => $lesson->date,
         ];
 
         return $this->ifAdmin([
@@ -38,11 +38,13 @@ class LessonTransformer extends ParentTransformer
         ], $response);
     }
 
-    public function includeGroup(Lesson $lesson): Item
-    {
-        return $this->item($lesson->group, new GroupTransformer());
-    }
+// TODO
+//    public function includeCourse(Lesson $lesson): Item
+//    {
+//        return $this->item($lesson->course, new GroupTransformer());
+//    }
 
+// TODO
 //    public function includeMaterial(Lesson $lesson): Item
 //    {
 //        return $this->item($lesson->material, new MaterialTransformer());

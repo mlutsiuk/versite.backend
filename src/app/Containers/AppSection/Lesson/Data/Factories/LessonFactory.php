@@ -13,8 +13,8 @@ class LessonFactory extends ParentFactory
     {
         return [
             'title' => $this->faker->title(),
-            'group_id' => 1,
-            'open_at' => $this->faker->dateTime()
+            'course_id' => 1,
+            'date' => $this->faker->dateTime()
         ];
     }
 }

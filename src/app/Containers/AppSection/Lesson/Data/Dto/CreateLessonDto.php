@@ -14,12 +14,12 @@ class CreateLessonDto extends ParentDto
     public string $title;
 
     /**
-     * @var string Lesson group
+     * @var string Lesson date
      */
-    public string $group_id;
+    public string $date;
 
     /**
-     * @var string When lesson are being available to student
+     * @var string Lesson course
      */
-    public string $open_at;
+    public string $course_id;
 }

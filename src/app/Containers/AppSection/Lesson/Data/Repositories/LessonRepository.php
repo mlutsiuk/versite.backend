@@ -11,6 +11,8 @@ class LessonRepository extends ParentRepository
      */
     protected $fieldSearchable = [
         'id' => '=',
-        'title' => 'like'
+        'title' => 'like',
+        // TODO: date
+        // TODO: course_id
     ];
 }

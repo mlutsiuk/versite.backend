@@ -2,6 +2,7 @@
 
 namespace App\Containers\AppSection\Lesson\Models;
 
+use App\Containers\AppSection\Course\Models\Course;
 use App\Containers\AppSection\Group\Models\Group;
 use App\Containers\AppSection\LessonMaterial\Models\LessonMaterial;
 use App\Ship\Parents\Models\Model as ParentModel;
@@ -12,9 +13,8 @@ class Lesson extends ParentModel
 {
     protected $fillable = [
         'title',
-        'group_id',
-        'material_id',
-        'open_at'
+        'date',
+        'course_id'
     ];
 
     protected $hidden = [
@@ -22,7 +22,7 @@ class Lesson extends ParentModel
     ];
 
     protected $casts = [
-        'open_at' => 'timestamp'
+        'date' => 'timestamp'
     ];
 
     /**
@@ -35,13 +35,14 @@ class Lesson extends ParentModel
      *
      * @return BelongsTo
      */
-    public function group(): BelongsTo
+    public function course(): BelongsTo
     {
-        return $this->belongsTo(Group::class, 'group_id', 'id');
+        return $this->belongsTo(Course::class, 'course_id', 'id');
     }
 
-    public function material(): HasOne
-    {
-        return $this->hasOne(LessonMaterial::class, 'id', 'material_id');
-    }
+// TODO
+//    public function material(): HasOne
+//    {
+//        return $this->hasOne(LessonMaterial::class, 'id', 'material_id');
+//    }
 }
