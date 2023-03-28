@@ -9,6 +9,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tests/Feature" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tests/Unit" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/src/storage/app" />
       <excludeFolder url="file://$MODULE_DIR$/src/storage/framework" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/nesbot/carbon" />
