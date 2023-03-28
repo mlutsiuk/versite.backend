@@ -26,7 +26,8 @@ class InvitationTransformer extends ParentTransformer
             'id' => $invitation->getHashedKey(),
             'receiver_id' => $invitation->receiver_id,
             'student_id' => $invitation->student_id,
-            'email' => $invitation->email
+            'email' => $invitation->email,
+            'is_hidden' => $invitation->is_hidden
         ];
 
         return $this->ifAdmin([
