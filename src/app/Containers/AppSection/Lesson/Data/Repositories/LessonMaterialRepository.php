@@ -2,6 +2,7 @@
 
 namespace App\Containers\AppSection\Lesson\Data\Repositories;
 
+use App\Containers\AppSection\Lesson\Models\LessonMaterial;
 use App\Ship\Parents\Repositories\Repository as ParentRepository;
 
 class LessonMaterialRepository extends ParentRepository
@@ -13,4 +14,9 @@ class LessonMaterialRepository extends ParentRepository
         'id' => '=',
         // ...
     ];
+
+    public function model(): string
+    {
+        return LessonMaterial::class;
+    }
 }
