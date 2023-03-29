@@ -1,4 +1,23 @@
+FROM composer:2.5.4 AS vendor
+
+WORKDIR /var/www/html
+
+COPY src/composer* ./
+RUN composer install \
+  --no-interaction \
+  --prefer-dist \
+  --ignore-platform-reqs \
+  --optimize-autoloader \
+  --apcu-autoloader \
+  --ansi \
+  --no-scripts \
+  --audit
+
+
+
 FROM php:8.1.11-fpm-alpine
+
+ENV ROOT=/var/www/html
 
 RUN apk --update --no-cache add \
     icu-dev \
@@ -29,7 +48,14 @@ RUN docker-php-ext-install \
     gettext \
     bcmath
 
-COPY ./src/vendor ./vendor
+COPY ./src/database ./database
+COPY ./src/lang ./lang
+COPY ./src/public ./public
+COPY ./src/resources ./resources
+COPY ./src/artisan ./
+
+COPY --from=vendor ${ROOT}/vendor vendor
+COPY --from=vendor ${ROOT}/composer.json ./
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
