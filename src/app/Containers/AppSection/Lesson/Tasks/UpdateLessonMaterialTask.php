@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Containers\AppSection\LessonMaterial\Tasks;
+namespace App\Containers\AppSection\Lesson\Tasks;
 
 use App\Containers\AppSection\Lesson\Data\Repositories\LessonRepository;
 use App\Containers\AppSection\Lesson\Models\Lesson;
-use App\Containers\AppSection\LessonMaterial\Data\Dto\UpdateLessonMaterialDto;
-use App\Containers\AppSection\LessonMaterial\Data\Repositories\LessonMaterialRepository;
-use App\Containers\AppSection\LessonMaterial\Models\LessonMaterial;
+use App\Containers\AppSection\Lesson\Data\Dto\UpdateLessonMaterialDto;
+use App\Containers\AppSection\Lesson\Data\Repositories\LessonMaterialRepository;
+use App\Containers\AppSection\Lesson\Models\LessonMaterial;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
@@ -22,8 +22,6 @@ class UpdateLessonMaterialTask extends ParentTask
     }
 
     /**
-     * @param UpdateLessonMaterialDto $dto
-     * @param $lessonId
      * @throws NotFoundException
      * @throws UpdateResourceFailedException
      */
@@ -35,7 +33,7 @@ class UpdateLessonMaterialTask extends ParentTask
 
             return $this->lessonMaterialRepository->update([
                 'content' => $dto->content
-             ], $lesson->material_id);
+             ], $lesson->material_id);    //TODO: Fix
         } catch (ModelNotFoundException) {
             throw new NotFoundException();
         } catch (Exception) {

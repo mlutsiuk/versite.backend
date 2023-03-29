@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Containers\AppSection\LessonMaterial\Actions;
+namespace App\Containers\AppSection\Lesson\Actions;
 
-use App\Containers\AppSection\LessonMaterial\Models\LessonMaterial;
-use App\Containers\AppSection\LessonMaterial\Tasks\FindLessonMaterialByIdTask;
+use App\Containers\AppSection\Lesson\Models\LessonMaterial;
+use App\Containers\AppSection\Lesson\Tasks\FindLessonMaterialByIdTask;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action as ParentAction;
 

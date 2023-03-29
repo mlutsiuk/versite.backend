@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Containers\AppSection\LessonMaterial\UI\API\Controllers;
+namespace App\Containers\AppSection\Lesson\UI\API\Controllers;
 
 use Apiato\Core\Exceptions\InvalidTransformerException;
-use App\Containers\AppSection\LessonMaterial\Actions\FindLessonMaterialByIdAction;
-use App\Containers\AppSection\LessonMaterial\UI\API\Requests\FindLessonMaterialByIdRequest;
-use App\Containers\AppSection\LessonMaterial\UI\API\Transformers\LessonMaterialTransformer;
+use App\Containers\AppSection\Lesson\Actions\FindLessonMaterialByIdAction;
+use App\Containers\AppSection\Lesson\UI\API\Requests\FindLessonMaterialByIdRequest;
+use App\Containers\AppSection\Lesson\UI\API\Transformers\LessonMaterialTransformer;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Controllers\ApiController;
 

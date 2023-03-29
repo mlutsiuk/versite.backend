@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Containers\AppSection\LessonMaterial\Tasks;
+namespace App\Containers\AppSection\Lesson\Tasks;
 
-use App\Containers\AppSection\LessonMaterial\Data\Dto\CreateLessonMaterialDto;
-use App\Containers\AppSection\LessonMaterial\Data\Repositories\LessonMaterialRepository;
-use App\Containers\AppSection\LessonMaterial\Models\LessonMaterial;
+use App\Containers\AppSection\Lesson\Data\Dto\CreateLessonMaterialDto;
+use App\Containers\AppSection\Lesson\Data\Repositories\LessonMaterialRepository;
+use App\Containers\AppSection\Lesson\Models\LessonMaterial;
 use App\Ship\Exceptions\CreateResourceFailedException;
-use App\Ship\Exceptions\NotImplementedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
 
@@ -18,7 +17,6 @@ class CreateLessonMaterialTask extends ParentTask
     }
 
     /**
-     * @param CreateLessonMaterialDto $dto
      * @throws CreateResourceFailedException
      */
     public function run(CreateLessonMaterialDto $dto): LessonMaterial

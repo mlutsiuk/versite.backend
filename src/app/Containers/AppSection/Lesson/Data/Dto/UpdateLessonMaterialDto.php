@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\AppSection\LessonMaterial\Data\Dto;
+namespace App\Containers\AppSection\Lesson\Data\Dto;
 
 use App\Ship\Parents\Dto\Dto as ParentDto;
 use Spatie\DataTransferObject\Attributes\Strict;

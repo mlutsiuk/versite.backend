@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Containers\AppSection\LessonMaterial\Tasks;
+namespace App\Containers\AppSection\Lesson\Tasks;
 
 use App\Containers\AppSection\Lesson\Data\Repositories\LessonRepository;
 use App\Containers\AppSection\Lesson\Models\Lesson;
-use App\Containers\AppSection\LessonMaterial\Models\LessonMaterial;
+use App\Containers\AppSection\Lesson\Models\LessonMaterial;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Exception;

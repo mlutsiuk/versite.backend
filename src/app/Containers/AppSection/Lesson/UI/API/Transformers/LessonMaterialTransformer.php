@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\AppSection\LessonMaterial\UI\API\Transformers;
+namespace App\Containers\AppSection\Lesson\UI\API\Transformers;
 
-use App\Containers\AppSection\LessonMaterial\Models\LessonMaterial;
+use App\Containers\AppSection\Lesson\Models\LessonMaterial;
 use App\Ship\Parents\Transformers\Transformer as ParentTransformer;
 
 class LessonMaterialTransformer extends ParentTransformer
@@ -21,7 +21,7 @@ class LessonMaterialTransformer extends ParentTransformer
             'object' => $lessonMaterial->getResourceKey(),
             'id' => $lessonMaterial->getHashedKey(),
             'content' => $lessonMaterial->content,
-            'course_id' => $lessonMaterial->course_id
+            'lesson_id' => $lessonMaterial->lesson_id
         ];
 
         return $this->ifAdmin([
@@ -29,8 +29,7 @@ class LessonMaterialTransformer extends ParentTransformer
             'created_at' => $lessonMaterial->created_at,
             'updated_at' => $lessonMaterial->updated_at,
             'readable_created_at' => $lessonMaterial->created_at->diffForHumans(),
-            'readable_updated_at' => $lessonMaterial->updated_at->diffForHumans(),
-            // 'deleted_at' => $lessonmaterial->deleted_at,
+            'readable_updated_at' => $lessonMaterial->updated_at->diffForHumans()
         ], $response);
     }
 }

@@ -3,8 +3,7 @@
 namespace App\Containers\AppSection\Lesson\Models;
 
 use App\Containers\AppSection\Course\Models\Course;
-use App\Containers\AppSection\Group\Models\Group;
-use App\Containers\AppSection\LessonMaterial\Models\LessonMaterial;
+use App\Containers\AppSection\Lesson\Models\LessonMaterial;
 use App\Ship\Parents\Models\Model as ParentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -31,7 +30,7 @@ class Lesson extends ParentModel
     protected string $resourceKey = 'Lesson';
 
     /**
-     * Lesson course, many-to-one relation.
+     * Lesson course, many-to-one relations
      *
      * @return BelongsTo
      */
@@ -40,9 +39,13 @@ class Lesson extends ParentModel
         return $this->belongsTo(Course::class, 'course_id', 'id');
     }
 
-// TODO
-//    public function material(): HasOne
-//    {
-//        return $this->hasOne(LessonMaterial::class, 'id', 'material_id');
-//    }
+    /**
+     * Material lesson, one-to-one relations
+     *
+     * @return HasOne
+     */
+    public function material(): HasOne
+    {
+        return $this->hasOne(LessonMaterial::class, 'lesson_id', 'id');
+    }
 }

@@ -2,9 +2,9 @@
 
 /**
  * @apiGroup            LessonMaterial
- * @apiName             FindLessonMaterialById
+ * @apiName             UpdateLessonMaterial
  *
- * @api                 {GET} /v1/lesson-materials/:id Find Lesson Material By Id
+ * @api                 {PATCH} /v1/lesson-materials/:id Update Lesson Material
  * @apiDescription      Endpoint description here...
  *
  * @apiVersion          1.0.0
@@ -22,9 +22,9 @@
  * }
  */
 
-use App\Containers\AppSection\LessonMaterial\UI\API\Controllers\FindLessonMaterialByIdController;
+use App\Containers\AppSection\Lesson\UI\API\Controllers\UpdateLessonMaterialController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('lessons/{lessonId}/material', [FindLessonMaterialByIdController::class, 'findLessonMaterialById'])
+Route::patch('lessons/{lessonId}/material', [UpdateLessonMaterialController::class, 'updateLessonMaterial'])
     ->middleware(['auth:api']);
 

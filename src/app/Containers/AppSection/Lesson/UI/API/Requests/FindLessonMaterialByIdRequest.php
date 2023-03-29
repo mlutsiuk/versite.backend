@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\AppSection\LessonMaterial\UI\API\Requests;
+namespace App\Containers\AppSection\Lesson\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request as ParentRequest;
 

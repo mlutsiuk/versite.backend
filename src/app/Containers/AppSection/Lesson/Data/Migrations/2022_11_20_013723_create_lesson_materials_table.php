@@ -13,12 +13,11 @@ return new class extends Migration {
         Schema::create('lesson_materials', function (Blueprint $table) {
             $table->id();
             $table->text('content');
-            $table->unsignedBigInteger('course_id');    // TODO: material_category_id
+            $table->unsignedBigInteger('lesson_id');
 
             $table->timestamps();
-            //$table->softDeletes();    // TODO
 
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('lesson_id')->references('id')->on('lessons');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('materials');
+        Schema::dropIfExists('lesson_materials');
     }
 };
