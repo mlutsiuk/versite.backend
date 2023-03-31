@@ -2,7 +2,6 @@
 
 namespace App\Containers\AppSection\Lesson\Tasks;
 
-use App\Containers\AppSection\Lesson\Data\Dto\CreateLessonMaterialDto;
 use App\Containers\AppSection\Lesson\Data\Repositories\LessonMaterialRepository;
 use App\Containers\AppSection\Lesson\Models\LessonMaterial;
 use App\Ship\Exceptions\CreateResourceFailedException;
@@ -19,13 +18,13 @@ class CreateLessonMaterialTask extends ParentTask
     /**
      * @throws CreateResourceFailedException
      */
-    public function run(CreateLessonMaterialDto $dto): LessonMaterial
+    public function run(int $lessonId): LessonMaterial
     {
         try {
 
             return $this->repository->create([
-                'content' => $dto->content,
-                'course_id' => $dto->course_id
+                'content' => '',
+                'lesson_id' => $lessonId
             ]);
 
         } catch (Exception) {

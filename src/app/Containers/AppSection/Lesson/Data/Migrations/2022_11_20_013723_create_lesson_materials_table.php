@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('lesson_materials', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->unsignedBigInteger('lesson_id');
 
             $table->timestamps();

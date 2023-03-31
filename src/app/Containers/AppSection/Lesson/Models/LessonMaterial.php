@@ -9,7 +9,7 @@ class LessonMaterial extends ParentModel
 {
     protected $fillable = [
         'content',
-        'course_id'
+        'lesson_id'
     ];
 
     protected $hidden = [
