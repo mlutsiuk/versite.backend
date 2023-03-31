@@ -17,9 +17,4 @@ class UpdateLessonDto extends ParentDto
      * @var string Lesson date
      */
     public string $date;
-
-    /**
-     * @var string Lesson course
-     */
-    public string $course_id;
 }

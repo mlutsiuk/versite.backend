@@ -41,10 +41,6 @@ class UpdateLessonRequest extends ParentRequest
                 'min:1',
                 'max:150'
             ],
-            'course_id' => [    // TODO: Remove course change for update
-                'required',
-                'exists:courses,id'
-            ],
             'date' => [
                 'required',
                 'date'

@@ -4,10 +4,8 @@ namespace App\Containers\AppSection\User\Models;
 
 use App\Containers\AppSection\Authorization\Traits\AuthorizationTrait;
 use App\Ship\Parents\Models\UserModel as ParentUserModel;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Validation\Rules\Password;
 use Str;

@@ -6,7 +6,6 @@ use App\Containers\AppSection\Lesson\Data\Dto\UpdateLessonDto;
 use App\Containers\AppSection\Lesson\Data\Repositories\LessonRepository;
 use App\Containers\AppSection\Lesson\Models\Lesson;
 use App\Ship\Exceptions\NotFoundException;
-use App\Ship\Exceptions\NotImplementedException;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
@@ -28,8 +27,7 @@ class UpdateLessonTask extends ParentTask
         try {
             return $this->repository->update([
                 'title' => $dto->title,
-                'date' => $dto->date,
-                'course_id' => $dto->course_id
+                'date' => $dto->date
              ], $id);
         } catch (ModelNotFoundException) {
             throw new NotFoundException();

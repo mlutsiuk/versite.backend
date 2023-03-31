@@ -15,8 +15,6 @@ use App\Ship\Parents\Controllers\ApiController;
 class UpdateLessonController extends ApiController
 {
     /**
-     * @param UpdateLessonRequest $request
-     * @return array
      * @throws InvalidTransformerException
      * @throws UpdateResourceFailedException
      * @throws IncorrectIdException
