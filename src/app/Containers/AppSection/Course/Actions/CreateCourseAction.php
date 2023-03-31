@@ -17,7 +17,7 @@ class CreateCourseAction extends ParentAction
      * @return Course
      * @throws CreateResourceFailedException
      */
-    public function run(CreateCourseDto $dto): Course    // TODO: Dto
+    public function run(CreateCourseDto $dto): Course
     {
         return app(CreateCourseTask::class)->run($dto);
     }

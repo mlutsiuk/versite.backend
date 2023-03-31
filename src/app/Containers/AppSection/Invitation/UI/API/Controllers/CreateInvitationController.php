@@ -15,8 +15,6 @@ use Illuminate\Http\JsonResponse;
 class CreateInvitationController extends ApiController
 {
     /**
-     * @param CreateInvitationRequest $request
-     * @return JsonResponse
      * @throws CreateResourceFailedException
      * @throws InvalidTransformerException
      * @throws IncorrectIdException

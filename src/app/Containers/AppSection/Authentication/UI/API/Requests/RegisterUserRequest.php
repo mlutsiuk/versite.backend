@@ -21,11 +21,7 @@ class RegisterUserRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            // TODO: Review length
             'name' => 'required|string|min:2|max:32',
-
-//            // TODO: Review length, github-style-nickname, lowercase before validation?
-//            'nickname' => 'required|unique:users,nickname|min:2|max:32',
 
             // TODO: lowercase before validation
             'email' => 'required|unique:users,email',

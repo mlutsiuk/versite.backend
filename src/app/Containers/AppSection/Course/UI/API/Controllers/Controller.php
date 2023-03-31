@@ -38,7 +38,7 @@ class Controller extends ApiController
      */
     public function createCourse(CreateCourseRequest $request): JsonResponse
     {
-        $dto = new CreateCourseDto($request->validated());    // TODO: Check $request->sanitizeData() method
+        $dto = new CreateCourseDto($request->validated());
         $course = app(CreateCourseAction::class)->run($dto);
 
         return $this->created($this->transform($course, CourseTransformer::class));

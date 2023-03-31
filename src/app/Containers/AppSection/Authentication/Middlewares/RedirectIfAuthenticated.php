@@ -16,17 +16,12 @@ class RedirectIfAuthenticated extends ParentMiddleware
      * Handle an incoming request.
      *
      * @param Request $request
-     * @param Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @param Closure(Request): (Response|RedirectResponse)  $next
      * @param string|null ...$guards
      * @return Response|RedirectResponse
      */
-    public function handle(Request $request, Closure $next, ...$guards)    // Review return types
+    public function handle(Request $request, Closure $next, ...$guards): Response|RedirectResponse
     {
-//    TODO
-//        if($request->expectsJson()) {
-//            return response(null, 204);
-//        }
-
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {

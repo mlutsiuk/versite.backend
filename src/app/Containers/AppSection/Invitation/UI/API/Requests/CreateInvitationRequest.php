@@ -48,6 +48,7 @@ class CreateInvitationRequest extends ParentRequest
     {
         return $this->check([
             'hasAccess',
+            // TODO: Url students/invitation
             // TODO: Course teacher
             // TODO: Can create invitations
         ]);

@@ -9,12 +9,9 @@ class CourseRepository extends ParentRepository
     /**
      * @var array
      */
-    protected $fieldSearchable = [    // TODO
+    protected $fieldSearchable = [
         'id' => '=',
         'title' => 'like',
-        'description' => 'like',
-        'author_id' => '=',
-        'created_at' => 'like',
-        'updated_at' => 'like'
+        'description' => 'like'
     ];
 }

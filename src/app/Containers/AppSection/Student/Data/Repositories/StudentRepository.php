@@ -11,7 +11,6 @@ class StudentRepository extends ParentRepository
      */
     protected $fieldSearchable = [
         'id' => '=',
-        'name' => 'like',
-        // TODO: Course_id & user_id
+        'name' => 'like'
     ];
 }

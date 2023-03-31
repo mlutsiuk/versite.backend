@@ -16,7 +16,7 @@ class DeleteCourseAction extends ParentAction
      * @throws DeleteResourceFailedException
      * @throws NotFoundException
      */
-    public function run($courseId): int    // TODO: Param type
+    public function run($courseId): int
     {
         return app(DeleteCourseTask::class)->run($courseId);
     }

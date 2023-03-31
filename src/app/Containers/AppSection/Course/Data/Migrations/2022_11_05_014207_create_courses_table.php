@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('courses', function (Blueprint $table) {    // TODO
+        Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('description');
@@ -26,8 +26,8 @@ return new class extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down(): void    // TODO
+    public function down(): void
     {
-//        Schema::dropIfExists('courses');
+        Schema::dropIfExists('courses');
     }
 };
