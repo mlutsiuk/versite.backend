@@ -14,9 +14,9 @@ class FindLessonMaterialByIdController extends ApiController
     /**
      * @throws InvalidTransformerException|NotFoundException
      */
-    public function findLessonMaterialById(FindLessonMaterialByIdRequest $request): array
+    public function findLessonMaterialById(FindLessonMaterialByIdRequest $request, $lessonId): array
     {
-        $lessonMaterial = app(FindLessonMaterialByIdAction::class)->run($request->validated()['lessonId']);
+        $lessonMaterial = app(FindLessonMaterialByIdAction::class)->run($lessonId);
 
         return $this->transform($lessonMaterial, LessonMaterialTransformer::class);
     }
