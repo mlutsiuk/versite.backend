@@ -3,7 +3,6 @@
 namespace App\Containers\AppSection\Course\UI\API\Controllers;
 
 use Apiato\Core\Exceptions\CoreInternalErrorException;
-use Apiato\Core\Exceptions\IncorrectIdException;
 use Apiato\Core\Exceptions\InvalidTransformerException;
 use App\Containers\AppSection\Course\Actions\CreateCourseAction;
 use App\Containers\AppSection\Course\Actions\DeleteCourseAction;
@@ -79,10 +78,10 @@ class Controller extends ApiController
      * @throws UnknownProperties
      * @throws UpdateResourceFailedException
      */
-    public function updateCourse(UpdateCourseRequest $request): array
+    public function updateCourse(UpdateCourseRequest $request, $id): array
     {
         $dto = new UpdateCourseDto($request->validated());
-        $course = app(UpdateCourseAction::class)->run($dto, $request->validated()['id']);
+        $course = app(UpdateCourseAction::class)->run($dto, $id);
 
         return $this->transform($course, CourseTransformer::class);
     }

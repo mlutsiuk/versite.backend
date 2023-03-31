@@ -14,7 +14,7 @@ class CreateCourseDto extends ParentDto
     public string $title;
 
     /**
-     * @var string Course description
+     * @var string|null Course description
      */
-    public string $description;
+    public ?string $description;
 }

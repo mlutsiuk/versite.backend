@@ -20,6 +20,11 @@
 use App\Containers\AppSection\Course\UI\API\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
+/**
+ * All values for `id` param is available except of `authored`
+ * because it matches with another route `courses/authored`.
+ */
 Route::get('courses/{id}', [Controller::class, 'findCourseById'])
+    ->where('id', '^(?!authored).*$')
     ->middleware(['auth:api']);
 

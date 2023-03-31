@@ -42,9 +42,8 @@ class CreateCourseRequest extends ParentRequest
                 'max:32'
             ],
             'description' => [
-                'required',
+                'nullable',
                 'string',
-                'min:15',
                 'max:100'
             ]
         ];

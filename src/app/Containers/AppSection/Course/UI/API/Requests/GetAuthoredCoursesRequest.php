@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\Course\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request as ParentRequest;
 
-class UpdateCourseRequest extends ParentRequest
+class GetAuthoredCoursesRequest extends ParentRequest
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -18,7 +18,7 @@ class UpdateCourseRequest extends ParentRequest
      * Id's that needs decoding before applying the validation rules.
      */
     protected array $decode = [
-        'id',
+        // 'id',
     ];
 
     /**
@@ -26,7 +26,7 @@ class UpdateCourseRequest extends ParentRequest
      * validation rules on them and allows accessing them like request data.
      */
     protected array $urlParameters = [
-        'id',
+        // 'id',
     ];
 
     /**
@@ -35,17 +35,7 @@ class UpdateCourseRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            'title' => [
-                'required',
-                'string',
-                'min:4',
-                'max:32'
-            ],
-            'description' => [
-                'nullable',
-                'string',
-                'max:100'
-            ]
+            // 'id' => 'required',
         ];
     }
 
