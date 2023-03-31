@@ -2,8 +2,7 @@
 
 namespace App\Containers\AppSection\Lesson\Tasks;
 
-use App\Containers\AppSection\Lesson\Data\Repositories\LessonRepository;
-use App\Containers\AppSection\Lesson\Models\Lesson;
+use App\Containers\AppSection\Lesson\Data\Repositories\LessonMaterialRepository;
 use App\Containers\AppSection\Lesson\Models\LessonMaterial;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
@@ -12,9 +11,8 @@ use Exception;
 class FindLessonMaterialByIdTask extends ParentTask
 {
     public function __construct(
-        protected LessonRepository $repository
-    ) {
-    }
+        protected LessonMaterialRepository $repository
+    ) {}
 
     /**
      * @throws NotFoundException
@@ -22,10 +20,16 @@ class FindLessonMaterialByIdTask extends ParentTask
     public function run($lessonId): LessonMaterial
     {
         try {
-            /** @var Lesson $lesson */
-            $lesson = $this->repository->find($lessonId);
+            /** @var LessonMaterial $material */
+            $material = $this->repository->findWhere([
+                'lesson_id' => $lessonId
+            ])->first();
 
-            return $lesson->material;
+            if(empty($material)) {
+                throw new NotFoundException();
+            }
+
+            return $material;
         } catch (Exception) {
             throw new NotFoundException();
         }
