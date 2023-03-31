@@ -14,9 +14,9 @@ class FindStudentByIdController extends ApiController
     /**
      * @throws InvalidTransformerException|NotFoundException
      */
-    public function findStudentById(FindStudentByIdRequest $request): array
+    public function findStudentById(FindStudentByIdRequest $request, $id): array
     {
-        $student = app(FindStudentByIdAction::class)->run($request->validated()['id']);
+        $student = app(FindStudentByIdAction::class)->run($id);
 
         return $this->transform($student, StudentTransformer::class);
     }
