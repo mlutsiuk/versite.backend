@@ -4,6 +4,7 @@ namespace App\Containers\AppSection\Authentication\UI\API\Requests;
 
 use App\Containers\AppSection\User\Models\User;
 use App\Ship\Parents\Requests\Request as ParentRequest;
+use Str;
 
 class RegisterUserRequest extends ParentRequest
 {
@@ -15,6 +16,17 @@ class RegisterUserRequest extends ParentRequest
         'roles' => '',
     ];
 
+    public function all($keys = null): array
+    {
+        $data = parent::all($keys);
+
+        if(!empty($data['email'])) {
+            $data['email'] = Str::lower($data['email']);
+        }
+
+        return $data;
+    }
+
     /**
      * Get the validation rules that apply to the request.
      */
@@ -22,8 +34,6 @@ class RegisterUserRequest extends ParentRequest
     {
         return [
             'name' => 'required|string|min:2|max:32',
-
-            // TODO: lowercase before validation
             'email' => 'required|unique:users,email',
             'password' => [
                 'required',

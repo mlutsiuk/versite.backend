@@ -2,15 +2,15 @@
 
 namespace App\Containers\AppSection\User\Models;
 
-use App\Containers\AppSection\Achievement\Models\UserAchievement;
 use App\Containers\AppSection\Authorization\Traits\AuthorizationTrait;
-use App\Containers\AppSection\Group\Models\Group;
 use App\Ship\Parents\Models\UserModel as ParentUserModel;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Validation\Rules\Password;
+use Str;
 
 class User extends ParentUserModel implements MustVerifyEmail
 {
@@ -52,6 +52,13 @@ class User extends ParentUserModel implements MustVerifyEmail
     public static function getPasswordValidationRules(): Password
     {
         return Password::min(8);
+    }
+
+    protected function email(): Attribute
+    {
+        return Attribute::make(
+            set: fn (string $value) => Str::lower($value)
+        );
     }
 
     /**

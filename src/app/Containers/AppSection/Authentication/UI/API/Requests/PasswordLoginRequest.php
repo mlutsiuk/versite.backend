@@ -3,6 +3,7 @@
 namespace App\Containers\AppSection\Authentication\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request as ParentRequest;
+use Str;
 
 class PasswordLoginRequest extends ParentRequest
 {
@@ -13,6 +14,17 @@ class PasswordLoginRequest extends ParentRequest
         'permissions' => '',
         'roles' => '',
     ];
+
+    public function all($keys = null): array
+    {
+        $data = parent::all($keys);
+
+        if(!empty($data['email'])) {
+            $data['email'] = Str::lower($data['email']);
+        }
+
+        return $data;
+    }
 
     /**
      * Get the validation rules that apply to the request.
