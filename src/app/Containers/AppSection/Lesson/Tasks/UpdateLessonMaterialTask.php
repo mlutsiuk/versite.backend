@@ -2,8 +2,6 @@
 
 namespace App\Containers\AppSection\Lesson\Tasks;
 
-use App\Containers\AppSection\Lesson\Data\Repositories\LessonRepository;
-use App\Containers\AppSection\Lesson\Models\Lesson;
 use App\Containers\AppSection\Lesson\Data\Dto\UpdateLessonMaterialDto;
 use App\Containers\AppSection\Lesson\Data\Repositories\LessonMaterialRepository;
 use App\Containers\AppSection\Lesson\Models\LessonMaterial;
@@ -16,8 +14,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class UpdateLessonMaterialTask extends ParentTask
 {
     public function __construct(
-        protected LessonMaterialRepository $lessonMaterialRepository,
-        protected LessonRepository $lessonRepository
+        protected LessonMaterialRepository $repository
     ) {
     }
 
@@ -28,12 +25,18 @@ class UpdateLessonMaterialTask extends ParentTask
     public function run(UpdateLessonMaterialDto $dto, $lessonId): LessonMaterial
     {
         try {
-            /** @var Lesson $lesson */
-            $lesson = $this->lessonRepository->find($lessonId);
+            /** @var LessonMaterial $material */
+            $material = $this->repository->findWhere([
+                'lesson_id' => $lessonId
+            ])->first();
 
-            return $this->lessonMaterialRepository->update([
+            if(empty($material)) {
+                throw new ModelNotFoundException();
+            }
+
+            return $this->repository->update([
                 'content' => $dto->content
-             ], $lesson->material_id);    //TODO: Fix
+             ], $material->id);
         } catch (ModelNotFoundException) {
             throw new NotFoundException();
         } catch (Exception) {
