@@ -12,14 +12,12 @@ use Illuminate\Http\JsonResponse;
 class DeleteStudentController extends ApiController
 {
     /**
-     * @param DeleteStudentRequest $request
-     * @return JsonResponse
      * @throws DeleteResourceFailedException
      * @throws NotFoundException
      */
-    public function deleteStudent(DeleteStudentRequest $request): JsonResponse
+    public function deleteStudent(DeleteStudentRequest $request, $id): JsonResponse
     {
-        app(DeleteStudentAction::class)->run($request->validated()['id']);
+        app(DeleteStudentAction::class)->run($id);
 
         return $this->noContent();
     }
