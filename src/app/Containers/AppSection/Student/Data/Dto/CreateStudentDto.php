@@ -19,7 +19,7 @@ class CreateStudentDto extends ParentDto
     public string $course_id;
 
     /**
-     * @var string Linked user account
+     * @var string|null Linked user account
      */
-    public string $user_id;
+    public ?string $user_id;
 }

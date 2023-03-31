@@ -10,7 +10,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Student extends ParentModel
 {
     protected $fillable = [
-        'name'
+        'name',
+        'course_id',
+        'user_id'
     ];
 
     protected $hidden = [

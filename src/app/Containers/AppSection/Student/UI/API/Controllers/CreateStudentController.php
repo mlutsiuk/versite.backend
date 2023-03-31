@@ -15,8 +15,6 @@ use Illuminate\Http\JsonResponse;
 class CreateStudentController extends ApiController
 {
     /**
-     * @param CreateStudentRequest $request
-     * @return JsonResponse
      * @throws CreateResourceFailedException
      * @throws InvalidTransformerException
      * @throws IncorrectIdException
