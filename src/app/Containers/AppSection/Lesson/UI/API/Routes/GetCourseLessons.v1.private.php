@@ -17,7 +17,7 @@
  * @apiUse              GeneralSuccessMultipleResponse
  */
 
-use App\Containers\AppSection\Course\UI\API\Controllers\GetAllCourseLessonsController;
+use App\Containers\AppSection\Lesson\UI\API\Controllers\GetAllCourseLessonsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('courses/{id}/lessons', [GetAllCourseLessonsController::class, 'getAllCourseLessons'])

@@ -25,6 +25,6 @@ use Illuminate\Support\Facades\Route;
  * because it matches with another route `courses/authored`.
  */
 Route::get('courses/{id}', [Controller::class, 'findCourseById'])
-    ->where('id', '^(?!authored).*$')
+    ->where('id', '^(?!.*\bauthored\b)[a-zA-Z0-9 ]+$')
     ->middleware(['auth:api']);
 
