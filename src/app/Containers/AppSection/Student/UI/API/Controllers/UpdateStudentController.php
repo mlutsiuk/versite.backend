@@ -22,10 +22,10 @@ class UpdateStudentController extends ApiController
      * @throws IncorrectIdException
      * @throws NotFoundException
      */
-    public function updateStudent(UpdateStudentRequest $request): array
+    public function updateStudent(UpdateStudentRequest $request, $id): array
     {
         $dto = new UpdateStudentDto($request->validated());
-        $student = app(UpdateStudentAction::class)->run($dto, $request->validated()['id']);
+        $student = app(UpdateStudentAction::class)->run($dto, $id);
 
         return $this->transform($student, StudentTransformer::class);
     }

@@ -6,7 +6,6 @@ use App\Containers\AppSection\Student\Data\Dto\UpdateStudentDto;
 use App\Containers\AppSection\Student\Data\Repositories\StudentRepository;
 use App\Containers\AppSection\Student\Models\Student;
 use App\Ship\Exceptions\NotFoundException;
-use App\Ship\Exceptions\NotImplementedException;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
@@ -26,9 +25,9 @@ class UpdateStudentTask extends ParentTask
     public function run(UpdateStudentDto $dto, $id): Student
     {
         try {
-            return $this->repository->create([
+            return $this->repository->update([
                 'name' => $dto->name
-            ]);
+            ], $id);
         } catch (ModelNotFoundException) {
             throw new NotFoundException();
         } catch (Exception) {
