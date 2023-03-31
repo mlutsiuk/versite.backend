@@ -60,24 +60,4 @@ class User extends ParentUserModel implements MustVerifyEmail
             set: fn (string $value) => Str::lower($value)
         );
     }
-
-    /**
-     * Group members(students), many-to-many relations.
-     *
-     * @return BelongsToMany
-     */
-    public function groups(): BelongsToMany
-    {
-        return $this->belongsToMany(
-            Group::class,
-            'group_members',
-            'id',
-            'id'
-        );
-    }
-
-    public function achievements(): HasMany
-    {
-        return $this->hasMany(UserAchievement::class, 'user_id', 'id');
-    }
 }
