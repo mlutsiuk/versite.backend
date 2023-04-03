@@ -2,9 +2,11 @@
 
 namespace App\Containers\AppSection\Lesson\UI\API\Transformers;
 
+use App\Containers\AppSection\Assignment\UI\API\Transformers\AssignmentTransformer;
 use App\Containers\AppSection\Course\UI\API\Transformers\CourseTransformer;
 use App\Containers\AppSection\Lesson\Models\Lesson;
 use App\Ship\Parents\Transformers\Transformer as ParentTransformer;
+use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
 class LessonTransformer extends ParentTransformer
@@ -15,7 +17,8 @@ class LessonTransformer extends ParentTransformer
 
     protected array $availableIncludes = [
         'course',
-        'material'
+        'material',
+        'assignments'
     ];
 
     public function transform(Lesson $lesson): array
@@ -46,5 +49,10 @@ class LessonTransformer extends ParentTransformer
     public function includeMaterial(Lesson $lesson): Item
     {
         return $this->item($lesson->material, new LessonMaterialTransformer());
+    }
+
+    public function includeAssignments(Lesson $lesson): Collection
+    {
+        return $this->collection($lesson->assignments, new AssignmentTransformer());
     }
 }

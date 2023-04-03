@@ -2,10 +2,11 @@
 
 namespace App\Containers\AppSection\Lesson\Models;
 
+use App\Containers\AppSection\Assignment\Models\Assignment;
 use App\Containers\AppSection\Course\Models\Course;
-use App\Containers\AppSection\Lesson\Models\LessonMaterial;
 use App\Ship\Parents\Models\Model as ParentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Lesson extends ParentModel
@@ -47,5 +48,15 @@ class Lesson extends ParentModel
     public function material(): HasOne
     {
         return $this->hasOne(LessonMaterial::class, 'lesson_id', 'id');
+    }
+
+    /**
+     * Lesson assignments, one-to-many relations
+     *
+     * @return HasMany
+     */
+    public function assignments(): HasMany
+    {
+        return $this->hasMany(Assignment::class, 'lesson_id');
     }
 }
