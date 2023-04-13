@@ -2,8 +2,12 @@
 
 namespace App\Containers\AppSection\Student\UI\API\Transformers;
 
+use App\Containers\AppSection\Course\UI\API\Transformers\CourseTransformer;
+use App\Containers\AppSection\Invitation\UI\API\Transformers\InvitationTransformer;
 use App\Containers\AppSection\Student\Models\Student;
+use App\Containers\AppSection\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer as ParentTransformer;
+use League\Fractal\Resource\Item;
 
 class StudentTransformer extends ParentTransformer
 {
@@ -12,7 +16,9 @@ class StudentTransformer extends ParentTransformer
     ];
 
     protected array $availableIncludes = [
-
+        'course',
+        'user',
+        'invitation'
     ];
 
     public function transform(Student $student): array
@@ -33,5 +39,24 @@ class StudentTransformer extends ParentTransformer
             'readable_updated_at' => $student->updated_at->diffForHumans(),
             // 'deleted_at' => $student->deleted_at,
         ], $response);
+    }
+
+    public function includeCourse(Student $student): Item
+    {
+        return $this->item($student->course, new CourseTransformer());
+    }
+
+    public function includeUser(Student $student)
+    {
+        if($student->user) {
+            return $this->item($student->user, new UserTransformer());
+        }
+    }
+
+    public function includeInvitation(Student $student)
+    {
+        if($student->invitation) {
+            return $this->item($student->invitation, new InvitationTransformer());
+        }
     }
 }
