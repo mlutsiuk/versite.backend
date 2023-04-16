@@ -10,7 +10,7 @@ class UserRepository extends ParentRepository
         'id' => '=',
         'name' => 'like',
         'nickname' => 'like',
-        'email' => '=',
+        'email' => 'like',
         'email_verified_at' => '=',
         'created_at' => 'like',
     ];
