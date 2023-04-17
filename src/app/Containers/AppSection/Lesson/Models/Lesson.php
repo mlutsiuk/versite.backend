@@ -22,7 +22,7 @@ class Lesson extends ParentModel
     ];
 
     protected $casts = [
-        'date' => 'timestamp'
+        'date' => 'datetime'
     ];
 
     /**
