@@ -17,9 +17,9 @@ class DeleteInvitationController extends ApiController
      * @throws DeleteResourceFailedException
      * @throws NotFoundException
      */
-    public function deleteInvitation(DeleteInvitationRequest $request): JsonResponse
+    public function deleteInvitation(DeleteInvitationRequest $request, $id): JsonResponse
     {
-        app(DeleteInvitationAction::class)->run($request->validated()['id']);
+        app(DeleteInvitationAction::class)->run($id);
 
         return $this->noContent();
     }
