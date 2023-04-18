@@ -40,9 +40,11 @@ class InvitationTransformer extends ParentTransformer
         ], $response);
     }
 
-    public function includeReceiver(Invitation $invitation): Item
+    public function includeReceiver(Invitation $invitation)
     {
-        return $this->item($invitation->receiver, new UserTransformer());
+        if($invitation->receiver) {
+            return $this->item($invitation->receiver, new UserTransformer());
+        }
     }
 
     public function includeGroup(Invitation $invitation): Item
