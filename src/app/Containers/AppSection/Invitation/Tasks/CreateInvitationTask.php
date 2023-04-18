@@ -5,15 +5,16 @@ namespace App\Containers\AppSection\Invitation\Tasks;
 use App\Containers\AppSection\Invitation\Data\Dto\CreateInvitationDto;
 use App\Containers\AppSection\Invitation\Data\Repositories\InvitationRepository;
 use App\Containers\AppSection\Invitation\Models\Invitation;
+use App\Containers\AppSection\User\Data\Repositories\UserRepository;
 use App\Ship\Exceptions\CreateResourceFailedException;
-use App\Ship\Exceptions\NotImplementedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
 
 class CreateInvitationTask extends ParentTask
 {
     public function __construct(
-        protected InvitationRepository $repository
+        protected InvitationRepository $repository,
+        protected UserRepository $userRepository
     ) {
     }
 
@@ -23,12 +24,25 @@ class CreateInvitationTask extends ParentTask
      */
     public function run(CreateInvitationDto $dto): Invitation
     {
+        $existingReceiver = $this->userRepository->findWhere([
+            'email' => $dto->email
+        ])->first();
+
         try {
-            return $this->repository->create([
-                'receiver_id' => $dto->receiver_id,
-                'student_id' => $dto->student_id,
-                'email' => $dto->email
-            ]);
+            if(!empty($existingReceiver)) {
+                return $this->repository->create([
+                    'student_id' => $dto->student_id,
+                    'receiver_id' => $existingReceiver->id,
+                    'is_hidden' => false
+                ]);
+            }
+            else {
+                return $this->repository->create([
+                    'student_id' => $dto->student_id,
+                    'email' => $dto->email,
+                    'is_hidden' => false
+                ]);
+            }
         } catch (Exception) {
             throw new CreateResourceFailedException();
         }

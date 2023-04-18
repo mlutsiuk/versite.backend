@@ -3,6 +3,7 @@
 namespace App\Containers\AppSection\Invitation\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request as ParentRequest;
+use Str;
 
 class CreateInvitationRequest extends ParentRequest
 {
@@ -29,15 +30,25 @@ class CreateInvitationRequest extends ParentRequest
 
     ];
 
+    public function all($keys = null): array
+    {
+        $data = parent::all($keys);
+
+        if(!empty($data['email'])) {
+            $data['email'] = Str::lower($data['email']);
+        }
+
+        return $data;
+    }
+
     /**
      * Get the validation rules that apply to the request.
      */
     public function rules(): array
     {
         return [
-            'receiver_id' => 'nullable|exists:users,id',    // TODO: required_if
             'student_id' => 'required|exists:students,id',
-            'email' => 'nullable|email|unique:users,email'
+            'email' => 'required|email'
         ];
     }
 

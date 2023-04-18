@@ -10,8 +10,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Invitation extends ParentModel
 {
     protected $fillable = [
+        'student_id',
         'receiver_id',
-        'group_id',
+        'email',
         'is_hidden'
     ];
 

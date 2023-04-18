@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('receiver_id')->nullable();
-            $table->unsignedBigInteger('email')->nullable();
+            $table->string('email')->nullable();
             $table->boolean('is_hidden');
 
             $table->foreign('student_id')->references('id')->on('students');

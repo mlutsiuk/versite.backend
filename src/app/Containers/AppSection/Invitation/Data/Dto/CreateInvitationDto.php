@@ -9,11 +9,6 @@ use Spatie\DataTransferObject\Attributes\Strict;
 class CreateInvitationDto extends ParentDto
 {
     /**
-     * @var int Invitation receiver (user)
-     */
-    public int $receiver_id;
-
-    /**
      * @var int Invitation to student
      */
     public int $student_id;
@@ -21,5 +16,5 @@ class CreateInvitationDto extends ParentDto
     /**
      * @var int Invitation to email
      */
-    public int $email;
+    public string $email;
 }
