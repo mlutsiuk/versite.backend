@@ -14,14 +14,15 @@ class AssignmentTransformer extends ParentTransformer
     ];
 
     protected array $availableIncludes = [
-        'lesson'
+        'lesson',
+        'my_submission'
     ];
 
     public function transform(Assignment $assignment): array
     {
         $response = [
             'object' => $assignment->getResourceKey(),
-            'id' => $assignment->getHashedKey(),
+            'id' => strval($assignment->getHashedKey()),
             'title' => $assignment->title,
             'description' => $assignment->description,
             'max_mark' => $assignment->max_mark,
@@ -42,5 +43,12 @@ class AssignmentTransformer extends ParentTransformer
     public function includeLesson(Assignment $assignment): Item
     {
         return $this->item($assignment->lesson, new LessonTransformer());
+    }
+
+    public function includeMySubmission(Assignment $assignment)
+    {
+        if($assignment->mySubmission) {
+            return $this->item($assignment->mySubmission, new AssignmentSubmissionTransformer());
+        }
     }
 }
