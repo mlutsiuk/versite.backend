@@ -4,6 +4,7 @@ namespace App\Containers\AppSection\User\Models;
 
 use App\Containers\AppSection\Authorization\Traits\AuthorizationTrait;
 use App\Containers\AppSection\Course\Models\Course;
+use App\Containers\AppSection\Invitation\Models\Invitation;
 use App\Ship\Parents\Models\UserModel as ParentUserModel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -64,5 +65,13 @@ class User extends ParentUserModel implements MustVerifyEmail
     public function authoredCourses(): HasMany
     {
         return $this->hasMany(Course::class, 'author_id');
+    }
+
+    /**
+     * User invitations, one-to-many relations
+     */
+    public function invitations(): HasMany
+    {
+        return $this->hasMany(Invitation::class, 'receiver_id');
     }
 }
