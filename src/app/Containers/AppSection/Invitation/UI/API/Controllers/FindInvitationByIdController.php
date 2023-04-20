@@ -14,9 +14,9 @@ class FindInvitationByIdController extends ApiController
     /**
      * @throws InvalidTransformerException|NotFoundException
      */
-    public function findInvitationById(FindInvitationByIdRequest $request): array
+    public function findInvitationById(FindInvitationByIdRequest $request, $id): array
     {
-        $invitation = app(FindInvitationByIdAction::class)->run($request->validated()['id']);
+        $invitation = app(FindInvitationByIdAction::class)->run($id);
 
         return $this->transform($invitation, InvitationTransformer::class);
     }
