@@ -16,7 +16,7 @@ class InvitationTransformer extends ParentTransformer
 
     protected array $availableIncludes = [
         'receiver',
-        'group'
+        'student'
     ];
 
     public function transform(Invitation $invitation): array
@@ -47,7 +47,7 @@ class InvitationTransformer extends ParentTransformer
         }
     }
 
-    public function includeGroup(Invitation $invitation): Item
+    public function includeStudent(Invitation $invitation): Item
     {
         return $this->item($invitation->student, new StudentTransformer());
     }
