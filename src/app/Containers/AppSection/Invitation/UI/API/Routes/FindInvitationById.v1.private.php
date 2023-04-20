@@ -21,5 +21,6 @@ use App\Containers\AppSection\Invitation\UI\API\Controllers\FindInvitationByIdCo
 use Illuminate\Support\Facades\Route;
 
 Route::get('invitations/{id}', [FindInvitationByIdController::class, 'findInvitationById'])
+    ->where('id', '^(?!.*\b(my)\b)[a-zA-Z0-9 ]+$')
     ->middleware(['auth:api']);
 
