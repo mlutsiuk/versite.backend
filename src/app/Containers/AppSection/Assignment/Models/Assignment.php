@@ -5,6 +5,7 @@ namespace App\Containers\AppSection\Assignment\Models;
 use App\Containers\AppSection\Lesson\Models\Lesson;
 use App\Ship\Parents\Models\Model as ParentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Assignment extends ParentModel
@@ -51,5 +52,15 @@ class Assignment extends ParentModel
             ->whereHas('student', function ($query) {
                 $query->where('user_id', auth()->id());
             });
+    }
+
+    /**
+     * Assignment submissions, one-to-many relations
+     *
+     * @return HasMany
+     */
+    public function submissions(): HasMany
+    {
+        return $this->hasMany(AssignmentSubmission::class, 'assignment_id', 'id');
     }
 }

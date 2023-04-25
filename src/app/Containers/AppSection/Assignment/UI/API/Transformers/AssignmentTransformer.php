@@ -5,6 +5,7 @@ namespace App\Containers\AppSection\Assignment\UI\API\Transformers;
 use App\Containers\AppSection\Assignment\Models\Assignment;
 use App\Containers\AppSection\Lesson\UI\API\Transformers\LessonTransformer;
 use App\Ship\Parents\Transformers\Transformer as ParentTransformer;
+use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
 class AssignmentTransformer extends ParentTransformer
@@ -15,7 +16,8 @@ class AssignmentTransformer extends ParentTransformer
 
     protected array $availableIncludes = [
         'lesson',
-        'my_submission'
+        'my_submission',
+        'submissions'
     ];
 
     public function transform(Assignment $assignment): array
@@ -50,5 +52,10 @@ class AssignmentTransformer extends ParentTransformer
         if($assignment->mySubmission) {
             return $this->item($assignment->mySubmission, new AssignmentSubmissionTransformer());
         }
+    }
+
+    public function includeSubmissions(Assignment $assignment): Collection
+    {
+        return $this->collection($assignment->submissions, new AssignmentSubmissionTransformer());
     }
 }
