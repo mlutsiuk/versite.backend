@@ -14,7 +14,8 @@ class AssignmentSubmissionTransformer extends ParentTransformer
     ];
 
     protected array $availableIncludes = [
-        'lesson'
+        'lesson',
+        'student'
     ];
 
     public function transform(AssignmentSubmission $submission): array
