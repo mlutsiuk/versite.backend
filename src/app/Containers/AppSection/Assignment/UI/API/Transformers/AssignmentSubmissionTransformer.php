@@ -22,12 +22,15 @@ class AssignmentSubmissionTransformer extends ParentTransformer
     {
         $response = [
             'object' => $submission->getResourceKey(),
-            'id' => $submission->getHashedKey(),
+            'id' => strval($submission->getHashedKey()),
             'assignment_id' => $submission->assignment_id,
-            'student_id' => $submission->student_id,
+            'student_id' => strval($submission->student_id),
             'content' => $submission->content,
             'mark' => $submission->mark,
-            'is_checked' => $submission->is_checked
+            'is_checked' => $submission->is_checked,
+
+            'created_at' => $submission->created_at,
+            'updated_at' => $submission->updated_at,
         ];
 
         return $this->ifAdmin([
