@@ -25,7 +25,7 @@ class StudentTransformer extends ParentTransformer
     {
         $response = [
             'object' => $student->getResourceKey(),
-            'id' => $student->getHashedKey(),
+            'id' => strval($student->getHashedKey()),
             'name' => $student->name,
             'course_id' => $student->course_id,
             'user_id' => $student->user_id
